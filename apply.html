@@ -60,9 +60,29 @@
     nav a.back:hover { color: var(--black); }
 
     .page-header {
-      padding: 100px 48px 80px;
+      padding: 120px 48px 80px;
       border-bottom: none;
       text-align: center;
+    }
+
+    /* CONGRATULATIONS */
+    .congrats-section {
+      min-height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 48px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .congrats-text {
+      font-family: 'Archivo', sans-serif;
+      font-weight: 900;
+      font-size: clamp(30px, 3.2vw, 52px);
+      letter-spacing: -0.02em;
+      line-height: 1.05;
+      color: var(--black);
     }
 
     .section-label {
@@ -495,7 +515,11 @@
   </nav>
 
   <div class="page-header">
-    <h1>Let's get to <s>work</s> <span style="color:#00227a">play!</span></h1>
+    <h1>Let's get to <s>work</s> <span style="color:var(--accent)">play!</span></h1>
+  </div>
+
+  <div class="congrats-section">
+    <p class="congrats-text">Congratulations.</p>
   </div>
 
   <div class="agreement-section">
