@@ -178,8 +178,27 @@
     }
 
     .testi {
-      background: var(--mid);
-      padding: 48px 40px;
+      background: #fff;
+      padding: 56px 48px 48px;
+      border-left: 3px solid var(--accent);
+      box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .testi::before {
+      content: '\201C';
+      position: absolute;
+      top: -10px;
+      left: 16px;
+      font-family: 'Archivo', sans-serif;
+      font-weight: 900;
+      font-size: 96px;
+      line-height: 1;
+      color: var(--accent);
+      opacity: 0.15;
+      pointer-events: none;
+      user-select: none;
     }
 
     .testi blockquote {
@@ -189,6 +208,7 @@
       font-weight: 400;
       font-style: normal;
       margin-bottom: 24px;
+      position: relative;
     }
 
     .testi cite {
@@ -197,6 +217,7 @@
       letter-spacing: 0.15em;
       text-transform: uppercase;
       color: var(--accent);
+      position: relative;
     }
 
     .testi-video {
@@ -206,8 +227,7 @@
     }
 
     .testi-video-embed {
-      background: var(--mid);
-      padding: 48px 40px;
+      padding: 0;
     }
 
     .testi-video .video-label {
@@ -220,11 +240,30 @@
     }
 
     .testi-video-quote {
-      background: var(--mid);
-      padding: 48px 40px;
+      background: #fff;
+      padding: 56px 48px 48px;
+      border-left: 3px solid var(--accent);
+      box-shadow: 0 2px 16px rgba(0,0,0,0.06);
       display: flex;
       flex-direction: column;
       justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .testi-video-quote::before {
+      content: '\201C';
+      position: absolute;
+      top: -10px;
+      left: 16px;
+      font-family: 'Archivo', sans-serif;
+      font-weight: 900;
+      font-size: 96px;
+      line-height: 1;
+      color: var(--accent);
+      opacity: 0.15;
+      pointer-events: none;
+      user-select: none;
     }
 
     .testi-video-quote blockquote {
