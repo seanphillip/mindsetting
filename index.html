@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mindsetting — Sean Phillip</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f5f4f0;
+      --black: #0a0a0a;
+      --accent: #0066ff;
+      --gray: #888;
+      --mid: #e8e7e3;
+      --border: #d8d7d3;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--black);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      font-size: 18px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 48px;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+    }
+
+    nav .logo {
+      font-family: 'Archivo', sans-serif;
+      font-weight: 900;
+      font-size: 18px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--black);
+      text-decoration: none;
+    }
+
+    nav a.cta-nav {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #fff;
+      background: var(--accent);
+      padding: 10px 22px;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    nav a.cta-nav:hover { opacity: 0.85; }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 0 48px 80px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero h1 {
+      font-family: 'Archivo', sans-serif;
+      font-weight: 900;
+      font-size: clamp(64px, 11vw, 148px);
+      line-height: 0.95;
+      letter-spacing: -0.02em;
+      max-width: 1000px;
+      text-transform: uppercase;
+    }
+
+    .hero h1 em {
+      font-style: normal;
+      color: var(--accent);
+    }
+
+    /* TESTIMONIALS */
+    .testimonials {
+      padding: 120px 48px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section-label {
+      font-size: 11px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 56px;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    .testi-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      margin-bottom: 2px;
+    }
+
+    .testi {
+      background: var(--mid);
+      padding: 48px 40px;
+    }
+
+    .testi blockquote {
+      font-size: 18px;
+      line-height: 1.75;
+      color: #333;
+      font-weight: 300;
+      font-style: italic;
+      margin-bottom: 24px;
+    }
+
+    .testi cite {
+      font-style: normal;
+      font-size: 12px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .testi-video {
+      background: var(--mid);
+      padding: 48px 40px;
+    }
+
+    .testi-video .video-label {
+      font-size: 12px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 24px;
+      display: block;
+    }
+
+    .video-wrap {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+    }
+
+    .video-wrap iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      border: none;
+    }
+
+    /* CTA */
+    .cta-section {
+      padding: 140px 48px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-section::before {
+      content: 'APPLY';
+      position: absolute;
+      font-family: 'Archivo', sans-serif;
+      font-weight: 900;
+      font-size: 30vw;
+      color: var(--mid);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      white-space: nowrap;
+      letter-spacing: -0.02em;
+    }
+
+    .cta-section h2 {
+      font-family: 'Archivo', sans-serif;
+      font-weight: 900;
+      font-size: clamp(42px, 6vw, 80px);
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+      margin-bottom: 24px;
+      position: relative;
+    }
+
+    .cta-section p {
+      font-size: 18px;
+      color: #666;
+      max-width: 500px;
+      margin: 0 auto 48px;
+      position: relative;
+      line-height: 1.7;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 18px 48px;
+      text-decoration: none;
+      transition: opacity 0.2s;
+      position: relative;
+    }
+    .btn-primary:hover { opacity: 0.85; }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 40px 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+      color: var(--gray);
+    }
+
+    footer a { color: var(--gray); text-decoration: none; }
+    footer a:hover { color: var(--black); }
+
+    /* FADE IN */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    @media (max-width: 768px) {
+      nav { padding: 20px 24px; }
+      .hero { padding: 0 24px 64px; }
+      .testimonials { padding: 80px 24px; }
+      .testi-grid { grid-template-columns: 1fr; }
+      .cta-section { padding: 100px 24px; }
+      footer { flex-direction: column; gap: 16px; text-align: center; padding: 32px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="/" class="logo">Mindsetting</a>
+    <a href="apply.html" class="cta-nav">Apply</a>
+  </nav>
+
+  <section class="hero">
+    <h1>Your new life story<br>is waiting <em>to be written.</em></h1>
+  </section>
+
+  <section class="testimonials">
+    <p class="section-label">Results</p>
+
+    <div class="testi-grid">
+      <div class="testi fade-in">
+        <blockquote>"A point-of-no-return experience. I'm never the same. This has taken the cap — that I didn't even know was there — off of my joy, off of thankfulness, and off of celebration."</blockquote>
+        <cite>— Session Client</cite>
+      </div>
+      <div class="testi fade-in">
+        <blockquote>"I can already feel a difference in how I show up with my clients, friends, and family. Our time together helped me refine my communication and bring more clarity and intention to my words. I also feel liberated from the stories I didn't realize I was living in."</blockquote>
+        <cite>— Session Client</cite>
+      </div>
+      <div class="testi fade-in">
+        <blockquote>"The whole anxiety thing just disappeared. Then one day I got in my car and it was gone — no thoughts, no apprehensions. My drive home was great and I'm having no problems."</blockquote>
+        <cite>— Session Client</cite>
+      </div>
+      <div class="testi fade-in">
+        <blockquote>"I could see him just relax in the water. We went under a huge tunnel for a mile and he didn't even blink. That night was his first night alone — he said his husband could move back out of the bed."</blockquote>
+        <cite>— Client's Partner</cite>
+      </div>
+    </div>
+
+    <div class="testi-video fade-in">
+      <span class="video-label">Ernst — In his own words</span>
+      <div class="video-wrap">
+        <iframe src="https://player.vimeo.com/video/1167900153" allowfullscreen></iframe>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <h2 class="fade-in">Ready to begin?</h2>
+    <p class="fade-in">The application takes time. That's the point.</p>
+    <a href="apply.html" class="btn-primary fade-in">Start Your Application →</a>
+  </section>
+
+  <footer>
+    <span>© 2025 Sean Phillip · Mindsetting</span>
+    <a href="mailto:sphillip1@gmail.com">sphillip1@gmail.com</a>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) e.target.classList.add('visible');
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>

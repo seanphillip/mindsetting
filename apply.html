@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Apply — Mindsetting</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f5f4f0;
+      --black: #0a0a0a;
+      --accent: #0066ff;
+      --gray: #888;
+      --mid: #e8e7e3;
+      --border: #d8d7d3;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--black);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 48px;
+      border-bottom: 1px solid var(--border);
+      background: var(--bg);
+    }
+
+    nav .logo {
+      font-family: 'Archivo', sans-serif;
+      font-weight: 900;
+      font-size: 18px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--black);
+      text-decoration: none;
+    }
+
+    nav a.back {
+      font-size: 13px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gray);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    nav a.back:hover { color: var(--black); }
+
+    .page-header {
+      padding: 100px 48px 80px;
+      border-bottom: 1px solid var(--border);
+      max-width: 800px;
+    }
+
+    .section-label {
+      font-size: 11px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 32px;
+    }
+
+    .page-header h1 {
+      font-family: 'Archivo', sans-serif;
+      font-weight: 900;
+      font-size: clamp(52px, 8vw, 100px);
+      line-height: 0.95;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      margin-bottom: 32px;
+    }
+
+    .page-header p {
+      font-size: 18px;
+      color: #555;
+      line-height: 1.75;
+      max-width: 600px;
+    }
+    .page-header p strong { color: var(--black); font-weight: 500; }
+
+    /* STEPS */
+    .apply-steps {
+      padding: 80px 48px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .apply-steps h2 {
+      font-family: 'Archivo', sans-serif;
+      font-weight: 900;
+      font-size: 36px;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+      margin-bottom: 48px;
+      color: #aaa;
+    }
+
+    .step-block {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 32px;
+      padding: 48px 0;
+      border-top: 1px solid var(--border);
+      align-items: start;
+    }
+
+    .step-block:last-child { border-bottom: 1px solid var(--border); }
+
+    .step-num {
+      font-family: 'Archivo', sans-serif;
+      font-weight: 900;
+      font-size: 52px;
+      color: #ccc;
+      line-height: 1;
+    }
+
+    .step-content h3 {
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+
+    .step-content p {
+      font-size: 17px;
+      color: #555;
+      line-height: 1.75;
+      margin-bottom: 16px;
+    }
+
+    .step-content p:last-child { margin-bottom: 0; }
+    .step-content p strong { color: var(--black); font-weight: 500; }
+
+    .payment-options {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      margin-top: 24px;
+    }
+
+    .payment-option {
+      background: var(--mid);
+      padding: 24px 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .payment-option .method {
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+
+    .payment-option .handle {
+      font-size: 17px;
+      color: var(--black);
+      font-weight: 400;
+    }
+
+    .payment-option a {
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #fff;
+      background: var(--accent);
+      padding: 10px 20px;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: opacity 0.2s;
+    }
+    .payment-option a:hover { opacity: 0.85; }
+
+    /* QUESTIONS */
+    .doc-preview {
+      padding: 80px 48px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .doc-preview h2 {
+      font-family: 'Archivo', sans-serif;
+      font-weight: 900;
+      font-size: 36px;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+      color: #aaa;
+      margin-bottom: 8px;
+    }
+
+    .doc-preview .sub {
+      font-size: 15px;
+      color: #999;
+      margin-bottom: 40px;
+    }
+
+    .doc-box {
+      background: var(--mid);
+      padding: 56px 48px;
+      max-width: 720px;
+      border-left: 3px solid var(--accent);
+    }
+
+    .doc-box .greeting {
+      font-size: 17px;
+      color: #444;
+      margin-bottom: 20px;
+      line-height: 1.8;
+    }
+
+    .doc-box .instructions {
+      font-size: 14px;
+      color: #999;
+      font-style: italic;
+      line-height: 1.7;
+    }
+
+    .doc-divider {
+      height: 1px;
+      background: var(--border);
+      margin: 32px 0;
+    }
+
+    .doc-questions { display: flex; flex-direction: column; }
+
+    .doc-q {
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .doc-q:last-child { border-bottom: none; }
+
+    .doc-q .q-label {
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+
+    .doc-q .q-text {
+      font-size: 16px;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    .doc-q .q-sub {
+      font-size: 14px;
+      color: #999;
+      margin-top: 6px;
+      font-style: italic;
+      line-height: 1.6;
+    }
+
+    /* EMAIL REMINDER */
+    .email-reminder {
+      padding: 60px 48px;
+      background: var(--mid);
+      border-top: 1px solid var(--border);
+    }
+
+    .email-reminder p {
+      font-size: 16px;
+      color: #999;
+      margin-bottom: 8px;
+    }
+
+    .email-reminder a {
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 20px;
+      font-weight: 500;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 40px 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+      color: var(--gray);
+    }
+    footer a { color: var(--gray); text-decoration: none; }
+    footer a:hover { color: var(--black); }
+
+    @media (max-width: 768px) {
+      nav { padding: 20px 24px; }
+      .page-header { padding: 64px 24px 48px; }
+      .apply-steps { padding: 64px 24px; }
+      .step-block { grid-template-columns: 56px 1fr; gap: 20px; }
+      .doc-preview { padding: 64px 24px; }
+      .doc-box { padding: 36px 28px; }
+      .email-reminder { padding: 48px 24px; }
+      footer { flex-direction: column; gap: 16px; text-align: center; padding: 32px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="logo">Mindsetting</a>
+    <a href="index.html" class="back">← Back</a>
+  </nav>
+
+  <div class="page-header">
+    <p class="section-label">The Application</p>
+    <h1>This is<br>step one.</h1>
+    <p>
+      The questions are free. Read them right now, below. Answer them in whatever format works for you.<br><br>
+      <strong>What gets Sean to read your answers is the $100.</strong> That's the filter. It goes toward your package if you move forward — and it's refunded if he doesn't think it's the right fit.
+    </p>
+  </div>
+
+  <div class="apply-steps">
+    <h2>Three steps. No shortcuts.</h2>
+
+    <div class="step-block">
+      <div class="step-num">01</div>
+      <div class="step-content">
+        <h3>Read the questions & answer them</h3>
+        <p>The full application is below — free, right now, no sign-up. Answer every question in whatever format works for you: Google Doc, Word, PDF, plain text.</p>
+        <p><strong>Answer conversationally, like you're telling someone the story.</strong> The more depth you bring, the more Sean can work with. Shallow answers get shallow results.</p>
+      </div>
+    </div>
+
+    <div class="step-block">
+      <div class="step-num">02</div>
+      <div class="step-content">
+        <h3>Email your answers + send $100</h3>
+        <p>Send your completed answers to <strong>sphillip1@gmail.com</strong> with the subject line: <strong>"Application — [Your Name]"</strong></p>
+        <p>Then send the <strong>$100 deposit</strong> via one of the options below. This is what gets Sean to open and read your application. Include your name in the payment note so he can match it.</p>
+
+        <div class="payment-options">
+          <div class="payment-option">
+            <div>
+              <div class="method">Venmo</div>
+              <div class="handle">@seanmichaelphillip</div>
+            </div>
+            <a href="https://venmo.com/u/seanmichaelphillip" target="_blank">Pay via Venmo →</a>
+          </div>
+          <div class="payment-option">
+            <div>
+              <div class="method">Wise</div>
+              <div class="handle">wise.com/pay/me/seanmichaelp4</div>
+            </div>
+            <a href="https://wise.com/pay/me/seanmichaelp4" target="_blank">Pay via Wise →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step-block">
+      <div class="step-num">03</div>
+      <div class="step-content">
+        <h3>Sean reads it & decides</h3>
+        <p>Sean reads every application personally. <strong>If it's a fit, he'll reach out to schedule your first 90-minute session.</strong></p>
+        <p>If he doesn't think the timing or readiness is right, he'll tell you — and your $100 is refunded. Not everyone is accepted. If you hear back, it means he believes you're ready.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="doc-preview">
+    <h2>The Questions</h2>
+    <p class="sub">Read them here. Answer them your way. Send them when you're done.</p>
+
+    <div class="doc-box">
+      <p class="greeting">
+        Hey ________________,<br><br>
+        Please answer the questions below in detail — a good rule of thumb is the more content the better. Take your time. And write down anything else you'd like to cover on our call.<br><br>
+        See you soon.<br>
+        <em>— Sean Michael</em>
+      </p>
+      <p class="instructions">Answer conversationally, as if you were telling someone the story. The more you express and articulate what's going on for you, the more you'll gain from our time together.</p>
+
+      <div class="doc-divider"></div>
+
+      <div class="doc-questions">
+        <div class="doc-q">
+          <div class="q-label">Basic Info</div>
+          <div class="q-text">Where do you currently live? (+ time zone) &nbsp;·&nbsp; Birthday?</div>
+        </div>
+        <div class="doc-q">
+          <div class="q-label">Confidence</div>
+          <div class="q-text">What area of your life are you feeling the most confident about right now, and why?</div>
+          <div class="q-sub">Rate it 1–20 (20 is high). How much is your self-talk playing into your success — what are the specific statements? Have you always been strong here, or did you build it?</div>
+        </div>
+        <div class="doc-q">
+          <div class="q-label">Stuckness</div>
+          <div class="q-text">What area of your life are you feeling the most stuck in — or resistant to — and why?</div>
+          <div class="q-sub">Rate it 1–20 (20 is high).</div>
+        </div>
+        <div class="doc-q">
+          <div class="q-label">Relationships</div>
+          <div class="q-text">Write one to two paragraphs (or more) on each:</div>
+          <div class="q-sub">Mom &nbsp;·&nbsp; Dad &nbsp;·&nbsp; Siblings &nbsp;·&nbsp; Other significant relationships &nbsp;·&nbsp; Work &nbsp;·&nbsp; Health &nbsp;·&nbsp; Fears</div>
+        </div>
+        <div class="doc-q">
+          <div class="q-label">Goals</div>
+          <div class="q-text">List 3 personal and 3 professional goals for this year or next.</div>
+        </div>
+        <div class="doc-q">
+          <div class="q-label">Travel</div>
+          <div class="q-text">3 places you want to go in the next three years.</div>
+        </div>
+        <div class="doc-q">
+          <div class="q-label">What else?</div>
+          <div class="q-text">Any other topics, patterns, problems or priorities you'd like to bring to the session — list and describe them below.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="email-reminder">
+    <p>Send your completed answers to:</p>
+    <a href="mailto:sphillip1@gmail.com?subject=Application — [Your Name]">sphillip1@gmail.com</a>
+    <p style="margin-top:12px;font-size:14px;">Subject line: <strong style="color:#555;">Application — [Your Name]</strong></p>
+  </div>
+
+  <footer>
+    <span>© 2025 Sean Phillip · Mindsetting</span>
+    <a href="mailto:sphillip1@gmail.com">sphillip1@gmail.com</a>
+  </footer>
+
+</body>
+</html>
