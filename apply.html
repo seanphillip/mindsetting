@@ -370,6 +370,99 @@
       font-weight: 500;
     }
 
+    /* CONTACT */
+    .contact-section {
+      padding: 80px 48px;
+      border-top: 1px solid var(--border);
+    }
+
+    .contact-heading {
+      font-family: 'Archivo', sans-serif;
+      font-weight: 900;
+      font-size: clamp(36px, 5vw, 64px);
+      letter-spacing: -0.02em;
+      margin-bottom: 48px;
+      color: var(--black);
+    }
+
+    .contact-form {
+      max-width: 600px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .contact-form input[type="text"],
+    .contact-form input[type="email"] {
+      width: 100%;
+      border: 1px solid #d8d7d3;
+      border-radius: 0;
+      padding: 14px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 17px;
+      font-weight: 300;
+      background: #fff;
+      color: var(--black);
+      outline: none;
+    }
+
+    .contact-form input:focus {
+      border-color: var(--accent);
+    }
+
+    .checkbox-group {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 8px;
+    }
+
+    .checkbox-label {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 17px;
+      color: var(--black);
+      cursor: pointer;
+    }
+
+    .checkbox-label input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      border-radius: 0;
+      accent-color: var(--accent);
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    .coaching-note {
+      font-style: italic;
+      font-size: 15px;
+      color: #666;
+      line-height: 1.6;
+      display: none;
+      padding-left: 30px;
+    }
+
+    .coaching-note.visible { display: block; }
+
+    .btn-primary {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 18px 48px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: opacity 0.2s;
+      font-family: 'DM Sans', sans-serif;
+    }
+    .btn-primary:hover { opacity: 0.85; }
+
     footer {
       border-top: 1px solid var(--border);
       padding: 40px 48px;
@@ -416,7 +509,7 @@
     </div>
 
     <div class="accord-row">
-      <button class="accord-btn" onclick="this.classList.toggle('open'); this.nextElementSibling.classList.toggle('open')">
+      <button class="accord-btn">
         <span class="accord-icon">+</span> Laws of the club
       </button>
       <div class="accord-content">
@@ -425,7 +518,7 @@
     </div>
 
     <div class="accord-row">
-      <button class="accord-btn" onclick="this.classList.toggle('open'); this.nextElementSibling.classList.toggle('open')">
+      <button class="accord-btn">
         <span class="accord-icon">+</span> affirmation
       </button>
       <div class="accord-content">
@@ -542,10 +635,61 @@
     <p style="margin-top:12px;font-size:14px;">Subject line: <strong style="color:#555;">Application — [Your Name]</strong></p>
   </div>
 
+  <section class="contact-section">
+    <h2 class="contact-heading">Let's talk.</h2>
+    <form class="contact-form" id="contactForm">
+      <input type="text" id="contactName" placeholder="Full Name" />
+      <input type="email" id="contactEmail" placeholder="Email" />
+
+      <div class="checkbox-group">
+        <label class="checkbox-label">
+          <input type="checkbox" id="chkWorkshops" />
+          Workshops &amp; group work
+        </label>
+        <label class="checkbox-label">
+          <input type="checkbox" id="chkCoaching" />
+          1:1 Coaching
+        </label>
+        <p class="coaching-note" id="coachingNote">Note: 1:1 coaching begins with a $100 deposit submitted alongside your application. The deposit is fully refunded if Sean determines it's not a fit.</p>
+      </div>
+
+      <button type="submit" class="btn-primary">Send</button>
+    </form>
+  </section>
+
   <footer>
     <span>© 2025 Sean Phillip · Mindsetting</span>
     <a href="mailto:sphillip1@gmail.com">sphillip1@gmail.com</a>
   </footer>
+
+  <script>
+    // Accordion toggles
+    document.querySelectorAll('.accord-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        btn.classList.toggle('open');
+        btn.nextElementSibling.classList.toggle('open');
+      });
+    });
+
+    // Coaching note toggle
+    document.getElementById('chkCoaching').addEventListener('change', function () {
+      document.getElementById('coachingNote').classList.toggle('visible', this.checked);
+    });
+
+    // Contact form mailto submit
+    document.getElementById('contactForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const name = document.getElementById('contactName').value.trim();
+      const email = document.getElementById('contactEmail').value.trim();
+      const workshops = document.getElementById('chkWorkshops').checked;
+      const coaching = document.getElementById('chkCoaching').checked;
+
+      const interests = [workshops && 'Workshops & group work', coaching && '1:1 Coaching'].filter(Boolean).join(', ');
+      const body = `Name: ${name}\nEmail: ${email}\nInterested in: ${interests || 'Not specified'}`;
+
+      window.location.href = `mailto:sphillip1@gmail.com?subject=${encodeURIComponent('Mindsetting Inquiry')}&body=${encodeURIComponent(body)}`;
+    });
+  </script>
 
 </body>
 </html>
