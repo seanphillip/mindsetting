@@ -61,8 +61,8 @@
 
     .page-header {
       padding: 100px 48px 80px;
-      border-bottom: 1px solid var(--border);
-      max-width: 800px;
+      border-bottom: none;
+      max-width: 900px;
     }
 
     .section-label {
@@ -76,11 +76,83 @@
     .page-header h1 {
       font-family: 'Archivo', sans-serif;
       font-weight: 900;
-      font-size: clamp(52px, 8vw, 100px);
+      font-size: clamp(40px, 7vw, 96px);
       line-height: 0.95;
       letter-spacing: -0.02em;
+      margin-bottom: 40px;
+    }
+
+    .agreement-notice {
+      font-size: 20px;
+      font-weight: 500;
+      color: var(--black);
+      line-height: 1.6;
+      max-width: 700px;
+    }
+
+    .agreement-section {
+      padding: 0 48px 80px;
+      max-width: 900px;
+    }
+
+    .agreement-block {
+      background: var(--mid);
+      border-left: 3px solid var(--accent);
+      padding: 32px;
+      margin-bottom: 2px;
+      font-size: 17px;
+      color: #444;
+      line-height: 1.8;
+    }
+
+    .laws-bar {
+      width: 100%;
+      background: var(--accent);
+      color: #fff;
+      font-family: 'Archivo', sans-serif;
+      font-weight: 900;
+      font-size: 13px;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      margin-bottom: 32px;
+      padding: 16px 24px;
+      border: none;
+      cursor: pointer;
+      text-align: left;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2px;
+    }
+
+    .laws-bar:hover { opacity: 0.9; }
+
+    .laws-bar .arrow {
+      transition: transform 0.2s;
+      font-size: 16px;
+    }
+
+    .laws-bar.open .arrow { transform: rotate(180deg); }
+
+    .laws-content {
+      background: var(--mid);
+      padding: 0 32px;
+      font-size: 17px;
+      color: #444;
+      line-height: 1.8;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease, padding 0.35s ease;
+    }
+
+    .laws-content.open {
+      max-height: 800px;
+      padding: 32px;
+      margin-bottom: 2px;
+    }
+
+    .agreement-divider {
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 80px;
     }
 
     .page-header p {
@@ -321,11 +393,27 @@
 
   <div class="page-header">
     <p class="section-label">The Application</p>
-    <h1>This is<br>step one.</h1>
-    <p>
-      The questions are free. Read them right now, below. Answer them in whatever format works for you.<br><br>
-      <strong>What gets Sean to read your answers is the $100.</strong> That's the filter. It goes toward your package if you move forward — and it's refunded if he doesn't think it's the right fit.
-    </p>
+    <h1>Let's get to work <span style="text-decoration:line-through">work</span> play!</h1>
+    <p class="agreement-notice"><strong>First... an agreement! Proceeding to book means you have read it and agreed to it.</strong></p>
+  </div>
+
+  <div class="agreement-section">
+    <div class="agreement-block">
+      Mindsetting.me ("the club") is a private membership club for personal development and transformation. Membership is by application only and is granted at the sole discretion of the club. By proceeding, you acknowledge that all sessions, materials, and communications shared within this club are private, confidential, and intended for your personal use only. You agree not to record, reproduce, or distribute any session content without prior written consent. This is not a licensed medical or therapeutic service. Results are personal and vary by individual. All sales are final except where explicitly stated otherwise in the application process.
+    </div>
+
+    <button class="laws-bar" onclick="this.classList.toggle('open'); this.nextElementSibling.classList.toggle('open')">
+      Laws of the Club <span class="arrow">▾</span>
+    </button>
+    <div class="laws-content">
+      The club, website, and knowledge offered herein are for private membership use only. Members agree to hold all club materials, methods, session content, and communications in strict confidence. No recording of sessions — audio, video, or otherwise — is permitted without explicit prior written consent from the club. Members agree to engage in sessions in good faith, to honor scheduled appointments, and to provide at least 24 hours notice for any cancellation or reschedule. The club reserves the right to decline or terminate membership at any time and for any reason. Members agree not to reproduce, resell, or redistribute any proprietary methods or frameworks shared within the club. Violations of these laws constitute grounds for immediate termination of membership without refund.
+    </div>
+
+    <div class="agreement-block">
+      i, enter into this agreement of my own free will, with full understanding of its terms. i agree to engage honestly and openly in my sessions. i understand that this work requires my active participation and willingness to look at myself clearly. i take full responsibility for my own outcomes and transformation. i will keep all session content and club communications confidential. i acknowledge that no guarantees of specific results have been made to me, and that my progress depends on my own effort, honesty, and commitment.
+    </div>
+
+    <div class="agreement-divider"></div>
   </div>
 
   <div class="apply-steps">
