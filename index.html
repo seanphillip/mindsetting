@@ -306,7 +306,7 @@
     }
 
     .cta-section::before {
-      content: 'APPLY';
+      content: 'READY';
       position: absolute;
       font-family: 'Archivo', sans-serif;
       font-weight: 900;
@@ -330,12 +330,15 @@
     }
 
     .cta-section p {
-      font-size: 18px;
-      color: #666;
+      font-family: 'Archivo', sans-serif;
+      font-weight: 900;
+      font-size: clamp(20px, 2.5vw, 32px);
+      color: var(--accent);
+      letter-spacing: 0.04em;
       max-width: 500px;
       margin: 0 auto 48px;
       position: relative;
-      line-height: 1.7;
+      line-height: 1.3;
     }
 
     .btn-primary {
