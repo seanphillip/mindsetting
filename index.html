@@ -111,7 +111,11 @@
 
     /* BREATHE */
     .breathe-section {
-      padding: 160px 48px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       text-align: center;
       border-bottom: 1px solid var(--border);
     }
@@ -124,7 +128,7 @@
       line-height: 1;
       color: var(--black);
       display: inline-block;
-      min-width: 1ch;
+      min-height: 1.1em;
     }
 
     #breathe-cursor {
@@ -137,9 +141,8 @@
 
     /* RESULTS HEADING */
     .results-heading-section {
-      padding: 120px 48px;
+      padding: 120px 48px 40px;
       text-align: center;
-      border-bottom: 1px solid var(--border);
     }
 
     .results-heading {
