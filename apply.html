@@ -82,76 +82,79 @@
       margin-bottom: 40px;
     }
 
-    .agreement-notice {
-      font-size: 20px;
-      font-weight: 500;
-      color: var(--black);
-      line-height: 1.6;
-      max-width: 700px;
-    }
-
     .agreement-section {
       padding: 0 48px 80px;
-      max-width: 900px;
     }
 
-    .agreement-block {
-      background: var(--mid);
-      border-left: 3px solid var(--accent);
-      padding: 32px;
-      margin-bottom: 2px;
+    .agreement-heading {
+      font-family: 'Archivo', sans-serif;
+      font-weight: 400;
+      font-size: 40px;
+      color: var(--black);
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    .agreement-body {
+      max-width: 860px;
       font-size: 17px;
-      color: #444;
+      color: #1a1a1a;
       line-height: 1.8;
     }
 
-    .laws-bar {
+    .agreement-body p + p { margin-top: 24px; }
+
+    .accord-row {
+      max-width: 860px;
+      border: 1px solid var(--border);
+      margin-top: 16px;
+    }
+
+    .accord-btn {
       width: 100%;
-      background: var(--accent);
-      color: #fff;
-      font-family: 'Archivo', sans-serif;
-      font-weight: 900;
-      font-size: 13px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      padding: 16px 24px;
+      background: transparent;
       border: none;
+      padding: 20px 24px;
+      font-size: 16px;
+      font-family: 'DM Sans', sans-serif;
+      color: var(--black);
       cursor: pointer;
       text-align: left;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      margin-bottom: 2px;
+      gap: 16px;
     }
 
-    .laws-bar:hover { opacity: 0.9; }
+    .accord-btn:hover { background: rgba(0,0,0,0.02); }
 
-    .laws-bar .arrow {
+    .accord-icon {
+      font-size: 20px;
+      line-height: 1;
+      font-weight: 300;
       transition: transform 0.2s;
-      font-size: 16px;
+      flex-shrink: 0;
     }
 
-    .laws-bar.open .arrow { transform: rotate(180deg); }
+    .accord-btn.open .accord-icon { transform: rotate(45deg); }
 
-    .laws-content {
-      background: var(--mid);
-      padding: 0 32px;
+    .accord-content {
       font-size: 17px;
-      color: #444;
+      color: #1a1a1a;
       line-height: 1.8;
       max-height: 0;
       overflow: hidden;
       transition: max-height 0.35s ease, padding 0.35s ease;
+      padding: 0 24px;
     }
 
-    .laws-content.open {
-      max-height: 800px;
-      padding: 32px;
-      margin-bottom: 2px;
+    .accord-content.open {
+      max-height: 1000px;
+      padding: 0 24px 24px;
     }
 
     .agreement-divider {
       border-bottom: 1px solid var(--border);
+      margin-top: 80px;
       margin-bottom: 80px;
     }
 
@@ -396,19 +399,30 @@
   </div>
 
   <div class="agreement-section">
-    <div class="agreement-block">
-      Mindsetting.me ("the club") is a private membership club for personal development and transformation. Membership is by application only and is granted at the sole discretion of the club. By proceeding, you acknowledge that all sessions, materials, and communications shared within this club are private, confidential, and intended for your personal use only. You agree not to record, reproduce, or distribute any session content without prior written consent. This is not a licensed medical or therapeutic service. Results are personal and vary by individual. All sales are final except where explicitly stated otherwise in the application process.
+    <h2 class="agreement-heading">agreement</h2>
+
+    <div class="agreement-body">
+      <p>Mindsetting.me ("the club") is a private membership club for personal development and transformation. Membership is by application only and is granted at the sole discretion of the club. By proceeding, you acknowledge that all sessions, materials, and communications shared within this club are private, confidential, and intended for your personal use only. You agree not to record, reproduce, or distribute any session content without prior written consent. This is not a licensed medical or therapeutic service. Results are personal and vary by individual.</p>
+      <p>All contributions made are dedicated to the growth and wellbeing of the member. Payments are applied toward your session package if accepted, and refunded in full if Sean determines the fit is not right. By submitting an application and payment, you confirm that you have read, understood, and agreed to the terms of this agreement.</p>
+      <p>The rules of the club are as follows — click to read them in full. By proceeding, you confirm your agreement to each.</p>
     </div>
 
-    <button class="laws-bar" onclick="this.classList.toggle('open'); this.nextElementSibling.classList.toggle('open')">
-      Laws of the Club <span class="arrow">▾</span>
-    </button>
-    <div class="laws-content">
-      The club, website, and knowledge offered herein are for private membership use only. Members agree to hold all club materials, methods, session content, and communications in strict confidence. No recording of sessions — audio, video, or otherwise — is permitted without explicit prior written consent from the club. Members agree to engage in sessions in good faith, to honor scheduled appointments, and to provide at least 24 hours notice for any cancellation or reschedule. The club reserves the right to decline or terminate membership at any time and for any reason. Members agree not to reproduce, resell, or redistribute any proprietary methods or frameworks shared within the club. Violations of these laws constitute grounds for immediate termination of membership without refund.
+    <div class="accord-row">
+      <button class="accord-btn" onclick="this.classList.toggle('open'); this.nextElementSibling.classList.toggle('open')">
+        <span class="accord-icon">+</span> Laws of the club
+      </button>
+      <div class="accord-content">
+        The club, website, and knowledge offered herein are for private membership use only. Members agree to hold all club materials, methods, session content, and communications in strict confidence. No recording of sessions — audio, video, or otherwise — is permitted without explicit prior written consent from the club. Members agree to engage in sessions in good faith, to honor scheduled appointments, and to provide at least 24 hours notice for any cancellation or reschedule. The club reserves the right to decline or terminate membership at any time and for any reason. Members agree not to reproduce, resell, or redistribute any proprietary methods or frameworks shared within the club. Violations of these laws constitute grounds for immediate termination of membership without refund.
+      </div>
     </div>
 
-    <div class="agreement-block">
-      i, enter into this agreement of my own free will, with full understanding of its terms. i agree to engage honestly and openly in my sessions. i understand that this work requires my active participation and willingness to look at myself clearly. i take full responsibility for my own outcomes and transformation. i will keep all session content and club communications confidential. i acknowledge that no guarantees of specific results have been made to me, and that my progress depends on my own effort, honesty, and commitment.
+    <div class="accord-row">
+      <button class="accord-btn" onclick="this.classList.toggle('open'); this.nextElementSibling.classList.toggle('open')">
+        <span class="accord-icon">+</span> affirmation
+      </button>
+      <div class="accord-content">
+        i, enter into this agreement of my own free will, with full understanding of its terms. i agree to engage honestly and openly in my sessions. i understand that this work requires my active participation and willingness to look at myself clearly. i take full responsibility for my own outcomes and transformation. i will keep all session content and club communications confidential. i acknowledge that no guarantees of specific results have been made to me, and that my progress depends on my own effort, honesty, and commitment.
+      </div>
     </div>
 
     <div class="agreement-divider"></div>
