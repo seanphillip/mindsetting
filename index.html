@@ -94,6 +94,21 @@
       color: var(--accent);
     }
 
+    #typed { color: var(--accent); }
+
+    #cursor {
+      display: inline-block;
+      color: var(--accent);
+      font-weight: 300;
+      margin-left: 2px;
+      animation: blink 600ms step-start infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
     /* TESTIMONIALS */
     .testimonials {
       padding: 120px 48px;
@@ -298,7 +313,7 @@
   </nav>
 
   <section class="hero">
-    <h1>Your new life story<br>is waiting <em>to be written.</em></h1>
+    <h1>Your new life story<br>is waiting <span id="typed"></span><span id="cursor">|</span></h1>
   </section>
 
   <section class="testimonials">
@@ -354,6 +369,20 @@
       });
     }, { threshold: 0.1 });
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Typewriter
+    (function () {
+      const text = 'to be written.';
+      const el = document.getElementById('typed');
+      let i = 0;
+      function type() {
+        if (i < text.length) {
+          el.textContent += text[i++];
+          setTimeout(type, 80);
+        }
+      }
+      type();
+    })();
   </script>
 
 </body>
