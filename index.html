@@ -297,7 +297,7 @@
     /* ABOUT */
     .about {
       display: grid;
-      grid-template-columns: 45% 55%;
+      grid-template-columns: 55% 45%;
       min-height: 85vh;
       border-bottom: 1px solid var(--border);
     }
@@ -321,7 +321,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      border-left: 8px solid var(--accent);
+      border-right: 8px solid var(--accent);
       border-bottom: 8px solid var(--accent);
       pointer-events: none;
       z-index: 1;
@@ -346,7 +346,7 @@
 
     .about-body {
       font-size: 17px;
-      color: #555;
+      color: var(--black);
       line-height: 1.75;
       margin-bottom: 20px;
       max-width: 520px;
@@ -391,9 +391,6 @@
   </section>
 
   <section class="about">
-    <div class="about-image">
-      <img src="sean.jpg" alt="Sean Phillip" />
-    </div>
     <div class="about-content">
       <p class="section-label fade-in">About</p>
       <h2 class="about-heading fade-in">I help people<br>get unstuck.</h2>
@@ -401,6 +398,9 @@
       <p class="about-body fade-in">His approach is direct and personal. No frameworks, no worksheets — just clear thinking, honest conversation, and a willingness to look at what's actually in the way.</p>
       <p class="about-body fade-in">Sessions are by application only. Not because of exclusivity — because the work requires readiness.</p>
       <p class="about-pull fade-in">The story you tell yourself<br>is the one you live.</p>
+    </div>
+    <div class="about-image">
+      <img src="sean.jpg" alt="Sean Phillip" />
     </div>
   </section>
 
