@@ -480,15 +480,6 @@
       border-top: 1px solid var(--border);
     }
 
-    .contact-heading {
-      font-family: 'Archivo', sans-serif;
-      font-weight: 900;
-      font-size: clamp(36px, 5vw, 64px);
-      letter-spacing: -0.02em;
-      margin-bottom: 48px;
-      color: var(--black);
-    }
-
     .contact-form {
       max-width: 600px;
       display: flex;
@@ -510,45 +501,54 @@
       outline: none;
     }
 
-    .contact-form input:focus {
-      border-color: var(--accent);
+    .contact-form input:focus { border-color: var(--accent); }
+
+    .agreement-note {
+      font-size: 13px;
+      color: #666;
+      line-height: 1.5;
+      margin-top: -4px;
     }
 
-    .checkbox-group {
+    .accord-content p { font-size: 15px; color: #444; line-height: 1.7; margin-top: 12px; }
+    .accord-content p:first-child { margin-top: 0; }
+
+    .contact-buttons {
       display: flex;
-      flex-direction: column;
-      gap: 12px;
+      gap: 16px;
+      flex-wrap: wrap;
       margin-top: 8px;
     }
 
-    .checkbox-label {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-size: 17px;
-      color: var(--black);
-      cursor: pointer;
-    }
-
-    .checkbox-label input[type="checkbox"] {
-      width: 18px;
-      height: 18px;
-      border-radius: 0;
-      accent-color: var(--accent);
-      cursor: pointer;
-      flex-shrink: 0;
-    }
-
-    .coaching-note {
-      font-style: italic;
+    .btn-book {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      font-family: 'Archivo', sans-serif;
+      font-weight: 700;
       font-size: 15px;
-      color: #666;
-      line-height: 1.6;
-      display: none;
-      padding-left: 30px;
+      letter-spacing: 0.04em;
+      padding: 18px 36px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: opacity 0.2s;
     }
+    .btn-book:hover { opacity: 0.85; }
 
-    .coaching-note.visible { display: block; }
+    .btn-inquire {
+      display: inline-block;
+      background: transparent;
+      color: var(--accent);
+      border: 2px solid var(--accent);
+      font-family: 'Archivo', sans-serif;
+      font-weight: 700;
+      font-size: 15px;
+      letter-spacing: 0.04em;
+      padding: 18px 36px;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    .btn-inquire:hover { opacity: 0.75; }
 
     .btn-primary {
       display: inline-block;
@@ -623,58 +623,31 @@
     </div>
   </section>
 
-  <div class="agreement-section">
-    <div class="agreement-box">
-    <h2 class="agreement-heading">agreement</h2>
-
-    <div class="agreement-body">
-      <p>Mindsetting.me ("the club") is a private membership club for personal development and transformation. Membership is by application only and is granted at the sole discretion of the club. By proceeding, you acknowledge that all sessions, materials, and communications shared within this club are private, confidential, and intended for your personal use only. You agree not to record, reproduce, or distribute any session content without prior written consent. This is not a licensed medical or therapeutic service. Results are personal and vary by individual.</p>
-      <p>All contributions made are dedicated to the growth and wellbeing of the member. Payments are applied toward your session package if accepted, and refunded in full if Sean determines the fit is not right. By submitting an application and payment, you confirm that you have read, understood, and agreed to the terms of this agreement.</p>
-      <p>The rules of the club are as follows — click to read them in full. By proceeding, you confirm your agreement to each.</p>
-    </div>
-
-    <div class="accord-row">
-      <button class="accord-btn">
-        <span class="accord-icon">+</span> Laws of the club
-      </button>
-      <div class="accord-content">
-        The club, website, and knowledge offered herein are for private membership use only. Members agree to hold all club materials, methods, session content, and communications in strict confidence. No recording of sessions — audio, video, or otherwise — is permitted without explicit prior written consent from the club. Members agree to engage in sessions in good faith, to honor scheduled appointments, and to provide at least 24 hours notice for any cancellation or reschedule. The club reserves the right to decline or terminate membership at any time and for any reason. Members agree not to reproduce, resell, or redistribute any proprietary methods or frameworks shared within the club. Violations of these laws constitute grounds for immediate termination of membership without refund.
-      </div>
-    </div>
-
-    <div class="accord-row">
-      <button class="accord-btn">
-        <span class="accord-icon">+</span> affirmation
-      </button>
-      <div class="accord-content">
-        i, enter into this agreement of my own free will, with full understanding of its terms. i agree to engage honestly and openly in my sessions. i understand that this work requires my active participation and willingness to look at myself clearly. i take full responsibility for my own outcomes and transformation. i will keep all session content and club communications confidential. i acknowledge that no guarantees of specific results have been made to me, and that my progress depends on my own effort, honesty, and commitment.
-      </div>
-    </div>
-    </div><!-- /.agreement-box -->
-
-    <div class="agreement-divider"></div>
-  </div>
-
   <section class="contact-section" id="contact-section">
-    <h2 class="contact-heading">Let's talk.</h2>
     <form class="contact-form" id="contactForm">
       <input type="text" id="contactName" placeholder="Full Name" />
       <input type="email" id="contactEmail" placeholder="Email" />
 
-      <div class="checkbox-group">
-        <label class="checkbox-label">
-          <input type="checkbox" id="chkWorkshops" />
-          Workshops &amp; group work
-        </label>
-        <label class="checkbox-label">
-          <input type="checkbox" id="chkCoaching" />
-          1:1 Coaching
-        </label>
-        <p class="coaching-note" id="coachingNote">Note: 1:1 coaching begins with a $100 deposit submitted alongside your application. The deposit is fully refunded if Sean determines it's not a fit.</p>
+      <p class="agreement-note">By proceeding to book, you confirm you have read and agree to the agreement.</p>
+
+      <div class="accord-row">
+        <button type="button" class="accord-btn">
+          <span class="accord-icon">+</span> Agreement
+        </button>
+        <div class="accord-content">
+          <p>Mindsetting.me ("the club") is a private membership club for personal development and transformation. Membership is by application only and is granted at the sole discretion of the club. By proceeding, you acknowledge that all sessions, materials, and communications shared within this club are private, confidential, and intended for your personal use only. You agree not to record, reproduce, or distribute any session content without prior written consent. This is not a licensed medical or therapeutic service. Results are personal and vary by individual.</p>
+          <p>All contributions made are dedicated to the growth and wellbeing of the member. Payments are applied toward your session package if accepted, and refunded in full if Sean determines the fit is not right. By submitting an application and payment, you confirm that you have read, understood, and agreed to the terms of this agreement.</p>
+          <p style="margin-top:20px;font-weight:600;">Laws of the club</p>
+          <p>The club, website, and knowledge offered herein are for private membership use only. Members agree to hold all club materials, methods, session content, and communications in strict confidence. No recording of sessions — audio, video, or otherwise — is permitted without explicit prior written consent from the club. Members agree to engage in sessions in good faith, to honor scheduled appointments, and to provide at least 24 hours notice for any cancellation or reschedule. The club reserves the right to decline or terminate membership at any time and for any reason. Members agree not to reproduce, resell, or redistribute any proprietary methods or frameworks shared within the club. Violations of these laws constitute grounds for immediate termination of membership without refund.</p>
+          <p style="margin-top:20px;font-weight:600;">Affirmation</p>
+          <p>i, enter into this agreement of my own free will, with full understanding of its terms. i agree to engage honestly and openly in my sessions. i understand that this work requires my active participation and willingness to look at myself clearly. i take full responsibility for my own outcomes and transformation. i will keep all session content and club communications confidential. i acknowledge that no guarantees of specific results have been made to me, and that my progress depends on my own effort, honesty, and commitment.</p>
+        </div>
       </div>
 
-      <p style="font-size:13px;color:#888;line-height:1.5;margin-top:4px;">By proceeding to book, you confirm you have read and agree to the agreement above.</p>
-      <button type="submit" class="btn-primary">Send</button>
+      <div class="contact-buttons">
+        <a href="#" class="btn-book">Book 1:1 guidance</a>
+        <button type="button" class="btn-inquire" id="btnInquire">Other epic inquiries</button>
+      </div>
     </form>
   </section>
 
@@ -692,22 +665,11 @@
       });
     });
 
-    // Coaching note toggle
-    document.getElementById('chkCoaching').addEventListener('change', function () {
-      document.getElementById('coachingNote').classList.toggle('visible', this.checked);
-    });
-
-    // Contact form mailto submit
-    document.getElementById('contactForm').addEventListener('submit', function (e) {
-      e.preventDefault();
+    // "Other epic inquiries" mailto
+    document.getElementById('btnInquire').addEventListener('click', function () {
       const name = document.getElementById('contactName').value.trim();
       const email = document.getElementById('contactEmail').value.trim();
-      const workshops = document.getElementById('chkWorkshops').checked;
-      const coaching = document.getElementById('chkCoaching').checked;
-
-      const interests = [workshops && 'Workshops & group work', coaching && '1:1 Coaching'].filter(Boolean).join(', ');
-      const body = `Name: ${name}\nEmail: ${email}\nInterested in: ${interests || 'Not specified'}`;
-
+      const body = `Name: ${name}\nEmail: ${email}`;
       window.location.href = `mailto:sphillip1@gmail.com?subject=${encodeURIComponent('Mindsetting Inquiry')}&body=${encodeURIComponent(body)}`;
     });
 
