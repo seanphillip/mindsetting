@@ -565,6 +565,96 @@
     }
     .btn-inquire:hover { opacity: 0.75; }
 
+    /* PAYMENT MODAL */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+    }
+    .modal-overlay.open { display: flex; }
+
+    .modal-card {
+      background: #fff;
+      width: 100%;
+      max-width: 420px;
+      margin: 24px;
+      padding: 40px 36px 36px;
+      position: relative;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 16px;
+      right: 20px;
+      font-size: 24px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #888;
+      line-height: 1;
+    }
+    .modal-close:hover { color: var(--black); }
+
+    .modal-heading {
+      font-family: 'Archivo', sans-serif;
+      font-weight: 900;
+      font-size: 24px;
+      letter-spacing: -0.02em;
+      color: var(--black);
+      margin-bottom: 4px;
+    }
+
+    .modal-sub {
+      font-size: 14px;
+      color: #888;
+      margin-bottom: 28px;
+    }
+
+    .modal-options {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .modal-btn {
+      display: block;
+      width: 100%;
+      padding: 16px 20px;
+      font-family: 'Archivo', sans-serif;
+      font-weight: 700;
+      font-size: 15px;
+      letter-spacing: 0.03em;
+      text-align: center;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: opacity 0.2s;
+    }
+    .modal-btn:hover { opacity: 0.85; }
+
+    .modal-btn-primary {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .modal-btn-zelle {
+      background: #EBF2FD;
+      color: #2E6FD8;
+      border: 1px solid #2E6FD8;
+    }
+
+    .modal-zelle-note {
+      font-size: 13px;
+      color: #888;
+      text-align: center;
+      margin-top: -4px;
+    }
+
     .btn-primary {
       display: inline-block;
       background: var(--accent);
@@ -660,11 +750,25 @@
       </div>
 
       <div class="contact-buttons">
-        <a href="#" class="btn-book">Book 1:1 guidance</a>
+        <button type="button" class="btn-book" id="btnBook">Book 1:1 guidance</button>
         <button type="button" class="btn-inquire" id="btnInquire">Other epic inquiries</button>
       </div>
     </form>
   </section>
+
+  <div class="modal-overlay" id="payModal">
+    <div class="modal-card">
+      <button class="modal-close" id="modalClose">×</button>
+      <p class="modal-heading">Choose how to pay</p>
+      <p class="modal-sub">$97 · secure payment</p>
+      <div class="modal-options">
+        <a href="https://venmo.com/seanmichaelphillip" target="_blank" class="modal-btn modal-btn-primary">Pay via Venmo</a>
+        <a href="https://wise.com/pay/me/seanmichaelp4" target="_blank" class="modal-btn modal-btn-primary">Pay via Wise</a>
+        <button type="button" class="modal-btn modal-btn-zelle" id="btnZelle">Pay via Zelle</button>
+        <p class="modal-zelle-note">Send to sphillip1@gmail.com</p>
+      </div>
+    </div>
+  </div>
 
   <footer>
     <span>© 2026 sean phillip · mindsetting.me</span>
@@ -677,6 +781,20 @@
       btn.addEventListener('click', () => {
         btn.classList.toggle('open');
         btn.nextElementSibling.classList.toggle('open');
+      });
+    });
+
+    // Payment modal
+    const payModal = document.getElementById('payModal');
+    document.getElementById('btnBook').addEventListener('click', () => payModal.classList.add('open'));
+    document.getElementById('modalClose').addEventListener('click', () => payModal.classList.remove('open'));
+    payModal.addEventListener('click', e => { if (e.target === payModal) payModal.classList.remove('open'); });
+
+    // Zelle copy
+    document.getElementById('btnZelle').addEventListener('click', function () {
+      navigator.clipboard.writeText('sphillip1@gmail.com').then(() => {
+        this.textContent = 'Copied!';
+        setTimeout(() => { this.textContent = 'Pay via Zelle'; }, 2000);
       });
     });
 
