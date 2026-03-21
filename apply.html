@@ -128,17 +128,16 @@
     /* ABOUT MIRROR */
     .about {
       display: grid;
-      grid-template-columns: 55% 45%;
+      grid-template-columns: 60% 40%;
       min-height: 85vh;
       border-bottom: 1px solid var(--border);
-      align-items: stretch;
     }
 
     .about-content {
       padding: 120px 64px;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      justify-content: flex-start;
     }
 
     .about-heading {
@@ -171,9 +170,8 @@
     }
 
     .about-image img {
-      width: auto;
-      max-height: 480px;
-      object-fit: contain;
+      width: 100%;
+      height: auto;
       display: block;
     }
 
