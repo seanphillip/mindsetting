@@ -8,6 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
 
     :root {
       --bg: #f5f4f0;
@@ -170,7 +171,8 @@
 
     .about-image img {
       width: 100%;
-      height: auto;
+      max-height: 500px;
+      object-fit: cover;
       display: block;
     }
 
@@ -603,6 +605,7 @@
       <p class="about-body fade-in">You fill it out and return it to me, and i read it carefully. Your goals need to be clearly defined — that's how we establish the destination.</p>
       <p class="about-body fade-in">If upon reading i find it's not a good fit, i'll refund you in full. If it is, your $97 also earns you a full call with me, guaranteed to shift something for the better — or your money back.</p>
       <p class="about-body fade-in">At the end of that call, we'll explore whether you're ready to go deeper.</p>
+      <a class="btn-primary fade-in" href="#contact-section" id="ready-btn" style="margin-top: 16px; display: inline-block;">i'm ready</a>
     </div>
     <div class="about-image">
       <img src="sean-2.jpg" alt="Sean Phillip" />
@@ -746,7 +749,7 @@
     <p style="margin-top:12px;font-size:14px;">Subject line: <strong style="color:#555;">Application — [Your Name]</strong></p>
   </div>
 
-  <section class="contact-section">
+  <section class="contact-section" id="contact-section">
     <h2 class="contact-heading">Let's talk.</h2>
     <form class="contact-form" id="contactForm">
       <input type="text" id="contactName" placeholder="Full Name" />
