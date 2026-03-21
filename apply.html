@@ -124,6 +124,54 @@
       margin-top: 8px;
     }
 
+    /* ABOUT MIRROR */
+    .about {
+      display: grid;
+      grid-template-columns: 55% 45%;
+      min-height: 85vh;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .about-content {
+      padding: 120px 64px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+
+    .about-heading {
+      font-family: 'Archivo', sans-serif;
+      font-weight: 900;
+      font-size: clamp(30px, 3.2vw, 52px);
+      letter-spacing: -0.02em;
+      line-height: 1.05;
+      margin-bottom: 32px;
+      color: var(--black);
+    }
+
+    .about-heading .h-line1 {
+      display: block;
+      margin-bottom: 20px;
+    }
+
+    .about-body {
+      font-size: 17px;
+      color: var(--black);
+      line-height: 1.75;
+      margin-bottom: 20px;
+      max-width: 520px;
+    }
+
+    .about-image {
+      padding: 120px 48px 0 0;
+    }
+
+    .about-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
     .agreement-section {
       padding: 0 48px 80px;
     }
@@ -525,7 +573,13 @@
       .doc-box { padding: 36px 28px; }
       .email-reminder { padding: 48px 24px; }
       footer { flex-direction: column; gap: 16px; text-align: center; padding: 32px 24px; }
+      .about { grid-template-columns: 1fr; }
+      .about-image { padding: 0 24px 64px; }
+      .about-content { padding: 64px 24px; }
     }
+
+    .fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-in.visible { opacity: 1; transform: none; }
   </style>
 </head>
 <body>
@@ -539,6 +593,19 @@
     <h1>Congratulations.</h1>
     <p class="page-header-sub">It's a rare thing, giving up the "feed" of mediocrity, in an all-out sprint to freedom..</p>
   </div>
+
+  <section class="about">
+    <div class="about-content">
+      <h2 class="about-heading fade-in"><span class="h-line1">1:1 guidance, how to proceed.</span></h2>
+      <p class="about-body fade-in">For $97, i'll send you a document designed to draw out exactly what's going on in your world.</p>
+      <p class="about-body fade-in">You fill it out and return it to me, and i read it carefully. Your goals need to be clearly defined — that's how we establish the destination.</p>
+      <p class="about-body fade-in">If upon reading i find it's not a good fit, i'll refund you in full. If it is, your $97 also earns you a full call with me, guaranteed to shift something for the better — or your money back.</p>
+      <p class="about-body fade-in">At the end of that call, we'll explore whether you're ready to invest more seriously in your success.</p>
+    </div>
+    <div class="about-image">
+      <img src="sean-2.jpg" alt="Sean Phillip" />
+    </div>
+  </section>
 
   <div class="agreement-section">
     <div class="agreement-box">
@@ -731,6 +798,11 @@
 
       window.location.href = `mailto:sphillip1@gmail.com?subject=${encodeURIComponent('Mindsetting Inquiry')}&body=${encodeURIComponent(body)}`;
     });
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
   </script>
 
 </body>
