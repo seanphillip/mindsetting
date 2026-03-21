@@ -100,6 +100,19 @@
       margin-bottom: 32px;
     }
 
+    #cursor {
+      display: inline-block;
+      color: var(--accent);
+      font-weight: 300;
+      margin-left: 2px;
+      animation: blink 800ms step-start infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
     .page-header h1 {
       font-family: 'Archivo', sans-serif;
       font-weight: 900;
@@ -614,7 +627,7 @@
   </nav>
 
   <div class="page-header">
-    <h1>Congratulations.</h1>
+    <h1>Keep going..<span id="cursor">|</span></h1>
     <p class="page-header-sub">It's a rare thing, giving up the "feed" of mediocrity, in an all-out sprint to freedom..</p>
   </div>
 
