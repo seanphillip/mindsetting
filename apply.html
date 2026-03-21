@@ -170,11 +170,23 @@
     }
 
     .about-image img {
-      width: 100%;
-      max-height: 500px;
-      object-fit: cover;
+      width: auto;
+      max-height: 480px;
+      object-fit: contain;
       display: block;
     }
+
+    .ready-link {
+      display: inline-block;
+      margin-top: 32px;
+      font-family: 'Archivo', sans-serif;
+      font-weight: 700;
+      font-size: 32px;
+      color: var(--accent);
+      text-decoration: none;
+      border: none;
+    }
+    .ready-link:hover { opacity: 0.75; }
 
     .agreement-section {
       padding: 0 48px 80px;
@@ -605,7 +617,7 @@
       <p class="about-body fade-in">You fill it out and return it to me, and i read it carefully. Your goals need to be clearly defined — that's how we establish the destination.</p>
       <p class="about-body fade-in">If upon reading i find it's not a good fit, i'll refund you in full. If it is, your $97 also earns you a full call with me, guaranteed to shift something for the better — or your money back.</p>
       <p class="about-body fade-in">At the end of that call, we'll explore whether you're ready to go deeper.</p>
-      <a class="btn-primary fade-in" href="#contact-section" id="ready-btn" style="margin-top: 16px; display: inline-block;">i'm ready</a>
+      <a class="ready-link fade-in" href="#contact-section">i'm ready ↓</a>
     </div>
     <div class="about-image">
       <img src="sean-2.jpg" alt="Sean Phillip" />
