@@ -502,7 +502,8 @@
     }
 
     .contact-form input[type="text"],
-    .contact-form input[type="email"] {
+    .contact-form input[type="email"],
+    .contact-form textarea {
       width: 100%;
       border: 1px solid #d8d7d3;
       border-radius: 0;
@@ -513,9 +514,46 @@
       background: #fff;
       color: var(--black);
       outline: none;
+      resize: vertical;
     }
 
-    .contact-form input:focus { border-color: var(--accent); }
+    .contact-form input:focus,
+    .contact-form textarea:focus { border-color: var(--accent); }
+
+    .checkbox-group {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .checkbox-label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 17px;
+      font-weight: 300;
+      color: var(--black);
+      cursor: pointer;
+    }
+
+    .checkbox-label input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      accent-color: var(--accent);
+      flex-shrink: 0;
+      cursor: pointer;
+    }
+
+    .form-error {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      font-weight: 400;
+      color: #c0392b;
+      border: 1px solid #e0b4b4;
+      background: #fdf3f3;
+      padding: 12px 16px;
+    }
 
     .agreement-note {
       font-size: 16px;
@@ -717,9 +755,9 @@
   <section class="about">
     <div class="about-content">
       <h2 class="about-heading fade-in"><span class="h-line1">Here's <span style="color:var(--accent)">how it works..</span></span></h2>
-      <p class="about-body fade-in">For $97, i send you a document designed for you to thoroughly express what's going on in your world.</p>
-      <p class="about-body fade-in">You fill it out (thoroughly), send it back to me, and i read it carefully. Your goals need to be clearly defined — that's how we establish the destination.</p>
-      <p class="about-body fade-in">If upon reading i find it's not a good fit, i refund you in full. If it is a good fit, your $97 also earns you a full length call with me, guaranteed to shift something for the better — or your money back.</p>
+      <p class="about-body fade-in">When you select "Begin 1:1 Coaching" and hit CONNECT below, i will email you a form to fill out along with a simple guide to get started.</p>
+      <p class="about-body fade-in">Before you do that — three things: 1) have a clear goal or two in mind, 2) bring a sense of humor, yet 3) be serious enough to commit to a real investment of time, money, and energy, provided we're the right fit for one another.</p>
+      <p class="about-body fade-in">There will be a small fee to have me read your form — but the form itself is free, so take advantage of it whether you end up working with me or not. If i read it and find we'd be a poor fit, you get a full refund. If it looks like a good fit, that same payment earns you a full-length call with me, guaranteed to shift something for the better — or your money back.</p>
       <p class="about-body fade-in">At the end of that call, we'll explore whether you're ready to truly go for the gold.</p>
       <a class="ready-link fade-in" href="#contact-section">i'm ready ↓</a>
     </div>
@@ -729,9 +767,10 @@
   </section>
 
   <section class="contact-section" id="contact-section">
-    <form class="contact-form" id="contactForm">
-      <input type="text" id="contactName" placeholder="Full Name" />
-      <input type="email" id="contactEmail" placeholder="Email" />
+    <form class="contact-form" id="contactForm" action="https://formspree.io/f/mqeyonzv" method="POST">
+      <input type="hidden" name="_subject" value="Mindsetting — New Application">
+      <input type="text" id="contactName" name="name" placeholder="Full Name" />
+      <input type="email" id="contactEmail" name="email" placeholder="Email" />
 
       <p class="agreement-note">By proceeding to book, you confirm you have read and agree to the agreement.</p>
 
@@ -749,9 +788,21 @@
         </div>
       </div>
 
+      <div class="checkbox-group">
+        <label class="checkbox-label" for="check-coaching">
+          <input type="checkbox" name="inquiry_type" value="Begin 1:1 Coaching" id="check-coaching"> Begin 1:1 Coaching
+        </label>
+        <label class="checkbox-label" for="check-other">
+          <input type="checkbox" name="inquiry_type" value="Other Epic Inquiry" id="check-other"> Other Epic Inquiry
+        </label>
+      </div>
+
+      <textarea name="message" id="contactMessage" placeholder="Your message..." rows="5"></textarea>
+
+      <div id="formError" class="form-error" style="display:none;"></div>
+
       <div class="contact-buttons">
-        <a href="#" class="btn-book">Book 1:1 guidance</a>
-        <button type="button" class="btn-inquire" id="btnInquire">Other epic inquiries</button>
+        <button type="submit" class="btn-book">Connect</button>
       </div>
     </form>
   </section>
@@ -770,12 +821,28 @@
       });
     });
 
-    // "Other epic inquiries" mailto
-    document.getElementById('btnInquire').addEventListener('click', function () {
+    // Form validation
+    document.getElementById('contactForm').addEventListener('submit', function (e) {
       const name = document.getElementById('contactName').value.trim();
       const email = document.getElementById('contactEmail').value.trim();
-      const body = `Name: ${name}\nEmail: ${email}`;
-      window.location.href = `mailto:sphillip1@gmail.com?subject=${encodeURIComponent('Mindsetting Inquiry')}&body=${encodeURIComponent(body)}`;
+      const checked = document.querySelectorAll('input[name="inquiry_type"]:checked').length > 0;
+      const message = document.getElementById('contactMessage').value.trim();
+      const errorEl = document.getElementById('formError');
+
+      let errors = [];
+      if (!name) errors.push('Please enter your full name.');
+      if (!email) errors.push('Please enter your email.');
+      if (!checked) errors.push('Please select an inquiry type.');
+      if (!message) errors.push('Please enter a message.');
+
+      if (errors.length) {
+        e.preventDefault();
+        errorEl.textContent = errors.join(' ');
+        errorEl.style.display = 'block';
+        errorEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      } else {
+        errorEl.style.display = 'none';
+      }
     });
 
   const observer = new IntersectionObserver(entries => {
