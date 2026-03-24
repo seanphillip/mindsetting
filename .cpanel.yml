@@ -1,0 +1,6 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/mindsett/public_html/
+    - /bin/cp apply.html $DEPLOYPATH
+    - /bin/cp index.html $DEPLOYPATH
