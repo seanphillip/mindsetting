@@ -739,18 +739,27 @@
         padding-left: 24px;
         padding-right: 24px;
         min-height: 60vh;
+        overflow: hidden;
+        box-sizing: border-box;
       }
       .page-header h1 {
-        font-size: clamp(40px, 11vw, 80px);
-        white-space: normal;
+        font-size: clamp(36px, 10vw, 72px);
+        white-space: normal !important;
         word-break: break-word;
+        overflow-wrap: break-word;
         text-align: center;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
       }
       .page-header-sub {
-        font-size: clamp(15px, 4vw, 20px);
-        white-space: normal;
+        font-size: clamp(14px, 4vw, 20px);
+        white-space: normal !important;
+        width: 100%;
         max-width: 100%;
+        box-sizing: border-box;
         padding: 0 8px;
+        overflow-wrap: break-word;
       }
       /* Agreement + form */
       .agreement-section { padding: 0 24px 60px; }
