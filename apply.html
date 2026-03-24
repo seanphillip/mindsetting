@@ -724,7 +724,6 @@
 
     @media (max-width: 768px) {
       nav { padding: 20px 24px; }
-
       .apply-steps { padding: 64px 24px; }
       .step-block { grid-template-columns: 56px 1fr; gap: 20px; }
       .doc-preview { padding: 64px 24px; }
@@ -734,6 +733,29 @@
       .about { grid-template-columns: 1fr; }
       .about-image { padding: 0 24px 64px; }
       .about-content { padding: 64px 24px; }
+      /* Hero section */
+      .page-header {
+        padding-top: 80px;
+        padding-left: 24px;
+        padding-right: 24px;
+        min-height: 60vh;
+      }
+      .page-header h1 {
+        font-size: clamp(40px, 11vw, 80px);
+        white-space: normal;
+        word-break: break-word;
+        text-align: center;
+      }
+      .page-header-sub {
+        font-size: clamp(15px, 4vw, 20px);
+        white-space: normal;
+        max-width: 100%;
+        padding: 0 8px;
+      }
+      /* Agreement + form */
+      .agreement-section { padding: 0 24px 60px; }
+      .agreement-box { padding: 28px 20px; }
+      .ready-link { font-size: 24px; }
     }
 
     .fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
