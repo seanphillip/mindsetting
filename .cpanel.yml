@@ -4,3 +4,5 @@ deployment:
     - export DEPLOYPATH=/home/mindsett/public_html/
     - /bin/cp apply.html $DEPLOYPATH
     - /bin/cp index.html $DEPLOYPATH
+    - /bin/cp sean.jpg $DEPLOYPATH
+    - /bin/cp sean-2.jpg $DEPLOYPATH
