@@ -95,6 +95,8 @@
     }
 
     #typed { color: var(--accent); }
+    .mobile-only { display: none; }
+    @media (max-width: 768px) { .mobile-only { display: block; } }
 
     #cursor {
       display: inline-block;
@@ -491,7 +493,7 @@
   </nav>
 
   <section class="hero">
-    <h1>Your new life story is waiting<br><span id="typed"></span><span id="cursor">|</span></h1>
+    <h1>Your new life story is waiting<br class="mobile-only"><span id="typed"></span><span id="cursor">|</span></h1>
   </section>
 
   <section class="about">
