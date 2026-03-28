@@ -775,10 +775,30 @@
   <section class="about">
     <div class="about-content">
       <h2 class="about-heading fade-in"><span class="h-line1">Here's <span style="color:var(--accent)">how it works..</span></span></h2>
-      <p class="about-body fade-in">When you select "Begin 1:1 Coaching" and hit CONNECT below, i will email you a form to fill out along with a simple guide to get started.</p>
-      <p class="about-body fade-in">Before you do that — three things: 1) have a clear goal or two in mind, 2) bring a sense of humor, yet 3) be serious enough to commit to a real investment of time, money, and energy, provided we're the right fit for one another.</p>
-      <p class="about-body fade-in">There will be a small fee to have me read your form — but the form itself is free, so take advantage of it whether you end up working with me or not. If i read it and find we'd be a poor fit, you get a full refund. If it looks like a good fit, that same payment earns you a full-length call with me, guaranteed to shift something for the better — or your money back.</p>
-      <p class="about-body fade-in">At the end of that call, we'll explore whether you're ready to truly go for the gold.</p>
+      <p class="about-body fade-in" style="font-family: 'DM Sans', sans-serif; font-size: 18.5px; font-weight: 300; line-height: 26.825px; color: rgb(10,10,10); margin-bottom: 20px; white-space: nowrap;">
+        &gt; select &ldquo;Begin 1:1 Coaching&rdquo; and hit CONNECT<br>
+        &gt; i email you a form to fill out + a simple guide to get started
+      </p>
+
+      <p class="about-body fade-in" style="font-family: 'DM Sans', sans-serif; font-size: 18.5px; font-weight: 300; line-height: 26.825px; color: rgb(10,10,10); margin-bottom: 20px; white-space: nowrap;">
+        &gt; have a clear goal or two in mind<br>
+        &gt; bring a sense of humor, and..<br>
+        &gt; be serious enough to commit<br>
+        &gt; time, money, energy
+      </p>
+
+      <p class="about-body fade-in" style="font-family: 'DM Sans', sans-serif; font-size: 18.5px; font-weight: 300; line-height: 26.825px; color: rgb(10,10,10); margin-bottom: 20px; white-space: nowrap;">
+        &gt; the form itself is free,<br>
+        &gt; take advantage of it whether we work together or not<br>
+        &gt; there is a small fee to have me read yours<br>
+        &gt; if i read it and we&rsquo;re a poor fit &mdash; full refund.<br>
+        &gt; if a good fit, same payment earns you a full-length call with me<br>
+        &gt; guaranteed to shift something for the better &mdash; or your money back
+      </p>
+
+      <p class="about-body fade-in" style="font-family: 'DM Sans', sans-serif; font-size: 18.5px; font-weight: 300; line-height: 26.825px; color: rgb(10,10,10); margin-bottom: 20px; white-space: nowrap;">
+        &gt; at the end of that call, we&rsquo;ll explore how far you want to go
+      </p>
       <a class="ready-link fade-in" href="#contact-section">i'm ready ↓</a>
     </div>
     <div class="about-image">
@@ -864,6 +884,27 @@
         errorEl.style.display = 'none';
       }
     });
+
+  function fitCopyText() {
+    const paras = document.querySelectorAll('.about-content p');
+    if (!paras.length) return;
+    let size = 30;
+    paras.forEach(p => { p.style.fontSize = size + 'px'; });
+    let fits = false;
+    while (!fits && size > 8) {
+      fits = true;
+      paras.forEach(p => {
+        if (p.scrollWidth > p.clientWidth) fits = false;
+      });
+      if (!fits) {
+        size -= 0.5;
+        paras.forEach(p => { p.style.fontSize = size + 'px'; });
+      }
+    }
+  }
+
+  fitCopyText();
+  window.addEventListener('resize', fitCopyText);
 
   const observer = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
