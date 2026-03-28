@@ -407,7 +407,6 @@
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
-      container-type: inline-size;
     }
 
     .about-heading {
@@ -439,11 +438,11 @@
     }
 
     .about-body {
-      font-size: clamp(9px, 3cqi, 21px);
       color: var(--black);
       line-height: 1.45;
       margin-bottom: 20px;
       max-width: 520px;
+      white-space: nowrap;
     }
 
     .about-pull {
@@ -611,6 +610,33 @@
       }
       runLoop();
     })();
+  </script>
+
+  <script>
+    function fitCopyText() {
+      const col = document.querySelector('.about-content');
+      if (!col) return;
+      const colWidth = col.getBoundingClientRect().width;
+      const paras = col.querySelectorAll('p');
+      let size = 30;
+      paras.forEach(p => {
+        p.style.fontSize = size + 'px';
+      });
+      let fits = false;
+      while (!fits && size > 8) {
+        fits = true;
+        paras.forEach(p => {
+          if (p.scrollWidth > colWidth) fits = false;
+        });
+        if (!fits) {
+          size -= 0.5;
+          paras.forEach(p => { p.style.fontSize = size + 'px'; });
+        }
+      }
+    }
+
+    fitCopyText();
+    window.addEventListener('resize', fitCopyText);
   </script>
 
 </body>
