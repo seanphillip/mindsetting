@@ -530,6 +530,11 @@
       .testi-video { grid-template-columns: 1fr; }
       .cta-section { padding: 100px 24px; }
       footer { flex-direction: column; gap: 16px; text-align: center; padding: 32px 24px; }
+      .about-content p {
+        white-space: normal !important;
+        font-size: 17px !important;
+        line-height: 1.6 !important;
+      }
     }
   </style>
 </head>
@@ -669,6 +674,7 @@
 
   <script>
     function fitCopyText() {
+      if (window.innerWidth <= 768) return;
       const paras = document.querySelectorAll('.about-content p');
       if (!paras.length) return;
       let size = 30;
