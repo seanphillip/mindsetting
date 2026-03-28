@@ -173,6 +173,53 @@
     }
 
 
+    .testi-featured {
+      width: 100%;
+      display: block;
+      background: #fff;
+      padding: 56px 48px 48px;
+      border-left: 3px solid var(--accent);
+      box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 2px;
+      box-sizing: border-box;
+    }
+
+    .testi-featured::before {
+      content: '\201C';
+      position: absolute;
+      top: -10px;
+      left: 16px;
+      font-family: 'Archivo', sans-serif;
+      font-weight: 900;
+      font-size: 96px;
+      line-height: 1;
+      color: var(--accent);
+      opacity: 0.15;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .testi-featured blockquote {
+      font-size: 18px;
+      line-height: 1.75;
+      color: #1a1a1a;
+      font-weight: 400;
+      font-style: normal;
+      margin-bottom: 24px;
+      position: relative;
+    }
+
+    .testi-featured cite {
+      font-style: normal;
+      font-size: 12px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      position: relative;
+    }
+
     .testi-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -523,6 +570,13 @@
   </section>
 
   <section class="testimonials">
+
+    <div class="testi-featured">
+      <blockquote>
+        "Sean! I've been feeling weird! Celebrating it. Keep getting hit by floods of tears without much warning. "It ended" goes deeper as the days pass ~ today was my first experience in years of leaving the house and not having an anxiety attack while out. Thank you for rewriting the story with me. Trusting you was the best random leap of faith I've leaped."
+      </blockquote>
+      <cite>— CHRONIC ANXIETY CESSATION</cite>
+    </div>
 
     <div class="testi-grid">
       <div class="testi fade-in">
