@@ -614,19 +614,15 @@
 
   <script>
     function fitCopyText() {
-      const col = document.querySelector('.about-content');
-      if (!col) return;
-      const colWidth = col.getBoundingClientRect().width;
-      const paras = col.querySelectorAll('p');
+      const paras = document.querySelectorAll('.about-content p');
+      if (!paras.length) return;
       let size = 30;
-      paras.forEach(p => {
-        p.style.fontSize = size + 'px';
-      });
+      paras.forEach(p => { p.style.fontSize = size + 'px'; });
       let fits = false;
       while (!fits && size > 8) {
         fits = true;
         paras.forEach(p => {
-          if (p.scrollWidth > colWidth) fits = false;
+          if (p.scrollWidth > p.clientWidth) fits = false;
         });
         if (!fits) {
           size -= 0.5;
