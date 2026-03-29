@@ -549,21 +549,20 @@
       }
 
       .about-bg {
-        position: absolute;
-        inset: 0;
-        background-position: center 30%;
+        height: 70vh;
+        position: relative;
+        background-position: 80% 45%;
+        background-size: cover;
       }
 
       .about-overlay {
-        min-height: 85vh;
-        padding: 48px 28px 64px;
-        background: linear-gradient(
-          to bottom,
-          rgba(0, 0, 0, 0) 0%,
-          rgba(0, 0, 0, 0.15) 50%,
-          rgba(0, 0, 0, 0.55) 100%
-        );
+        background: var(--cream);
         margin-top: 0;
+        padding: 40px 28px 64px;
+        min-height: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
       }
 
       .about-copy {
