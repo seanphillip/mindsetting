@@ -545,31 +545,42 @@
     @media (max-width: 768px) {
 
       .about {
-        min-height: auto;
+        position: relative;
       }
 
       .about-bg {
-        height: 45vh;
-        position: relative;
-        background-position: center top;
+        position: absolute;
+        inset: 0;
+        background-position: center 30%;
       }
 
       .about-overlay {
+        min-height: 85vh;
+        padding: 48px 28px 64px;
         background: linear-gradient(
           to bottom,
-          rgba(245, 242, 235, 0.0) 0%,
-          rgba(245, 242, 235, 0.85) 30%,
-          rgba(245, 242, 235, 1.0) 60%
+          rgba(0, 0, 0, 0) 0%,
+          rgba(0, 0, 0, 0.15) 50%,
+          rgba(0, 0, 0, 0.55) 100%
         );
-        position: relative;
-        margin-top: -45vh;
-        padding: 0 32px 64px 32px;
-        min-height: auto;
+        margin-top: 0;
       }
 
       .about-copy {
+        padding-top: 0;
         max-width: 100%;
-        padding-top: 30vh;
+      }
+
+      .about-heading .h-line1 {
+        color: #ffffff;
+      }
+
+      .about-heading .h-line2.blue {
+        color: #a8c4f0;
+      }
+
+      .about-stanza p {
+        color: rgba(255, 255, 255, 0.88);
       }
 
       .freedom-line {
