@@ -538,7 +538,7 @@
       footer { flex-direction: column; gap: 16px; text-align: center; padding: 32px 24px; }
       .about-content p {
         white-space: normal !important;
-        font-size: 17px !important;
+        font-size: 14px !important;
         line-height: 1.6 !important;
       }
     }
@@ -683,7 +683,7 @@
       if (window.innerWidth <= 768) return;
       const paras = document.querySelectorAll('.about-content p');
       if (!paras.length) return;
-      let size = 30;
+      let size = 14;
       paras.forEach(p => { p.style.fontSize = size + 'px'; });
       let fits = false;
       while (!fits && size > 8) {
