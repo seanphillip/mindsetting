@@ -438,9 +438,55 @@
     /* ABOUT */
     .about {
       display: grid;
-      grid-template-columns: 60% 40%;
+      grid-template-columns: 58% 42%;
       border-bottom: 1px solid var(--border);
       align-items: stretch;
+    }
+
+    .about-content {
+      padding: 100px 64px 100px 64px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 32px;
+    }
+
+    .about-heading {
+      font-family: Archivo, sans-serif;
+      font-weight: 900;
+      font-size: clamp(28px, 3vw, 48px);
+      letter-spacing: -0.02em;
+      line-height: 1.05;
+      margin-bottom: 8px;
+      color: var(--black);
+    }
+
+    .about-heading .h-line1 {
+      display: block;
+      margin-bottom: 12px;
+    }
+
+    .about-heading .h-line2 {
+      display: block;
+    }
+
+    .about-stanza {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .about-stanza p {
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--black);
+      margin: 0;
+    }
+
+    .about-stanza--break p {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--black);
     }
 
     .about-image {
@@ -448,88 +494,31 @@
       top: 0;
       height: 100vh;
       display: flex;
+      flex-direction: column;
       align-items: center;
-      padding: 120px 48px 120px 0;
+      justify-content: center;
+      padding: 80px 48px 80px 0;
       box-sizing: border-box;
+      gap: 24px;
     }
 
     .about-image img {
       width: 100%;
-      height: 100%;
+      height: auto;
+      max-height: 75vh;
       object-fit: contain;
       object-position: center;
       display: block;
     }
 
-    .about-content {
-      padding: 120px 64px;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      font-size: 16px;
-      line-height: 1.5;
-    }
-
-    .about-heading {
-      font-family: 'Archivo', sans-serif;
+    .freedom-line {
+      font-family: Archivo, sans-serif;
       font-weight: 900;
-      font-size: clamp(30px, 3.2vw, 52px);
+      font-size: clamp(18px, 2vw, 28px);
       letter-spacing: -0.02em;
-      line-height: 1.05;
-      margin-bottom: 32px;
       color: var(--black);
-    }
-
-    .about-heading .h-line1 {
-      display: block;
-      margin-bottom: 20px;
-    }
-
-    .about-heading .h-line2 {
-      display: block;
-    }
-
-    .about-sub {
-      font-size: 18px;
-      font-weight: 400;
-      color: var(--black);
-      line-height: 1.5;
-      margin-bottom: 28px;
-      max-width: 520px;
-    }
-
-    .about-body {
-      color: var(--black);
-      font-size: 15px;
-      line-height: 1.6;
-      margin-bottom: 20px;
-      max-width: 520px;
-    }
-
-    .about-pull {
-      font-family: 'Archivo', sans-serif;
-      font-weight: 900;
-      font-size: 20px;
-      color: var(--accent);
-      letter-spacing: -0.01em;
-      line-height: 1.35;
-      margin-top: 16px;
-      padding-top: 32px;
-      border-top: 1px solid var(--border);
-      max-width: 520px;
-    }
-
-    .about-arrival {
-      font-family: 'Archivo', sans-serif;
-      font-weight: 900;
-      font-size: 17px;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--black);
-      margin-top: 32px;
-      padding-top: 32px;
-      border-top: 1px solid var(--border);
-      max-width: 520px;
+      text-align: center;
+      margin: 0;
     }
 
     @media (max-width: 768px) {
@@ -543,11 +532,6 @@
       .testi-video { grid-template-columns: 1fr; }
       .cta-section { padding: 100px 24px; }
       footer { flex-direction: column; gap: 16px; text-align: center; padding: 32px 24px; }
-      .about-content p {
-        white-space: normal !important;
-        font-size: 14px !important;
-        line-height: 1.6 !important;
-      }
     }
   </style>
 </head>
@@ -563,20 +547,49 @@
   </section>
 
   <section class="about">
+
     <div class="about-content">
-      <h2 class="about-heading fade-in"><span class="h-line1">scrap the loop.</span><span class="h-line2" style="color:var(--accent)">script your life.</span></h2>
-      <p class="about-body fade-in">you&rsquo;ve done &ldquo;the work&rdquo; (cliché phrase alert!)<br>an insight here, a breakthrough there<br>you&rsquo;ve grown, undoubtedly<br>but are you deeply, fully, immutably FREE?<br><br>and if not... why? HOW?</p>
-      <hr style="border:none;border-top:0.5px solid rgba(255,255,255,0.15);margin:0.75rem 0;">
-      <p class="about-body fade-in">are you still acting like a damned slave?<br>stuck, looping, flailing like a fly in syrup?<br>or, successful on paper, with a noisy hell inside?</p>
-      <hr style="border:none;border-top:0.5px solid rgba(255,255,255,0.15);margin:0.75rem 0;">
-      <p class="about-body fade-in">i can help<br>in the steering toward true resounding clarity<br>where your potential stops being theoretical<br>real decisions, real experiences, real stakes<br>measurable, undeniable results</p>
-      <hr style="border:none;border-top:0.5px solid rgba(255,255,255,0.15);margin:0.75rem 0;">
-      <p class="about-body fade-in">come, put your past in its place<br>and let&rsquo;s write what comes next</p>
+      <div class="about-heading fade-in">
+        <span class="h-line1">scrap the loop.</span>
+        <span class="h-line2 blue">script your life.</span>
+      </div>
+
+      <div class="about-stanza fade-in">
+        <p>you've done "the work" (cliché phrase alert!)</p>
+        <p>an insight here, a breakthrough there</p>
+        <p>you've grown, undoubtedly</p>
+        <p>but are you deeply, fully, immutably FREE?</p>
+      </div>
+
+      <div class="about-stanza about-stanza--break fade-in">
+        <p>and if not... why? HOW?</p>
+      </div>
+
+      <div class="about-stanza fade-in">
+        <p>are you still acting like a damned slave?</p>
+        <p>stuck, looping, flailing like a fly in syrup?</p>
+        <p>or, successful on paper, with a noisy hell inside?</p>
+      </div>
+
+      <div class="about-stanza fade-in">
+        <p>i can help</p>
+        <p>in the steering toward true resounding clarity</p>
+        <p>where your potential stops being theoretical</p>
+        <p>real decisions, real experiences, real stakes</p>
+        <p>measurable, undeniable results</p>
+      </div>
+
+      <div class="about-stanza fade-in">
+        <p>come, put your past in its place</p>
+        <p>and let's write what comes next</p>
+      </div>
     </div>
+
     <div class="about-image">
-      <img src="sean.jpg" alt="Sean Phillip" />
-      <p style="font-size:36px;font-weight:900;margin-top:1.5rem;color:inherit;font-family:'Archivo',sans-serif;text-align:right;letter-spacing:-1.92px;">freedom is a <span style="color:var(--accent)">decision</span></p>
+      <img src="sean.jpg" alt="canyon">
+      <p class="freedom-line">freedom is a <span class="blue">decision</span></p>
     </div>
+
   </section>
 
   <section class="breathe-section">
