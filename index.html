@@ -493,10 +493,10 @@
 
     .about-body {
       color: var(--black);
-      line-height: 1.45;
+      font-size: 15px;
+      line-height: 1.6;
       margin-bottom: 20px;
       max-width: 520px;
-      white-space: nowrap;
     }
 
     .about-pull {
@@ -678,29 +678,6 @@
     })();
   </script>
 
-  <script>
-    function fitCopyText() {
-      if (window.innerWidth <= 768) return;
-      const paras = document.querySelectorAll('.about-content p');
-      if (!paras.length) return;
-      let size = 14;
-      paras.forEach(p => { p.style.fontSize = size + 'px'; });
-      let fits = false;
-      while (!fits && size > 8) {
-        fits = true;
-        paras.forEach(p => {
-          if (p.scrollWidth > p.clientWidth) fits = false;
-        });
-        if (!fits) {
-          size -= 0.5;
-          paras.forEach(p => { p.style.fontSize = size + 'px'; });
-        }
-      }
-    }
-
-    fitCopyText();
-    window.addEventListener('resize', fitCopyText);
-  </script>
 
 </body>
 </html>
