@@ -447,11 +447,16 @@
     .about-bg {
       position: absolute;
       inset: 0;
-      background-image: url('sean.jpg');
-      background-size: cover;
-      background-position: 80% 0%;
-      background-repeat: no-repeat;
+      overflow: hidden;
       z-index: 0;
+    }
+
+    .about-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 80% 20%;
+      display: block;
     }
 
     .about-overlay {
@@ -552,8 +557,6 @@
       .about-bg {
         height: 70vh;
         position: relative;
-        background-position: 80% 0%;
-        background-size: cover;
       }
 
       .about-overlay {
@@ -609,7 +612,7 @@
 
   <section class="about">
 
-    <div class="about-bg"></div>
+    <div class="about-bg"><img src="sean.jpg" alt="canyon"></div>
 
     <div class="about-overlay">
 
