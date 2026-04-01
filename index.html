@@ -605,7 +605,7 @@
 
     .dictionary-entry {
       border-left: 3px solid #2E6FD8;
-      padding: 1rem 1.5rem;
+      padding: 0.5rem 1.5rem;
       margin: 1.5rem 0;
       font-family: 'DM Sans', sans-serif;
       font-weight: 300;
@@ -613,26 +613,27 @@
     }
 
     .dictionary-entry .entry-head {
-      font-size: 1.1em;
-      margin-bottom: 0.25rem;
+      font-size: 1.4em;
+      font-weight: 700;
+      margin-bottom: 0.2rem;
     }
 
     .dictionary-entry .entry-meta {
       font-style: italic;
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.5rem;
       opacity: 0.7;
     }
 
     .dictionary-entry .entry-definitions {
       display: flex;
       flex-direction: column;
-      gap: 0.25rem;
+      line-height: 1;
+      gap: 0;
     }
 
-    .dictionary-entry .entry-divider {
-      border: none;
-      border-top: 1px solid rgba(46, 111, 216, 0.2);
-      margin: 0.75rem 0;
+    .dictionary-entry .entry-definitions span {
+      display: block;
+      line-height: 1;
     }
   </style>
 </head>
@@ -660,7 +661,8 @@
         </div>
 
         <div class="about-stanza fade-in">
-          <p>You are here.<br>and here is an opportunity.</p>
+          <p>You are here. and here is an opportunity.</p>
+          <p>Here is an opportunity to advance.</p>
         </div>
 
         <div class="about-stanza fade-in">
@@ -674,13 +676,11 @@
               <span>to bring forward in time</span>
               <span>to increase in rate</span>
             </div>
-            <hr class="entry-divider">
-            <div class="entry-definitions">
-              <span>this is a moment to contemplate</span>
-              <span>the lies you've been told</span>
-              <span>and the lies you've told yourself</span>
-            </div>
           </div>
+        </div>
+
+        <div class="about-stanza fade-in">
+          <p>this is a moment to contemplate<br>the lies you've been told<br>and the lies you've told yourself</p>
         </div>
 
         <div class="about-stanza fade-in">
