@@ -19,16 +19,38 @@
       --border: #d8d7d3;
     }
 
+    /* ─── KRAFT PAPER BODY ────────────────────────────── */
     body {
-      background-color: #f7f6f1;
+      background-color: #f0e8d8;
       background-image:
-        repeating-linear-gradient(transparent, transparent 31px, #b8d4f0 31px, #b8d4f0 32px),
-        linear-gradient(90deg, transparent 64px, #f0b8b8 64px, #f0b8b8 65px, transparent 65px);
-      color: var(--black);
+        repeating-linear-gradient(
+          transparent, transparent 31px,
+          rgba(200, 185, 154, 0.4) 31px,
+          rgba(200, 185, 154, 0.4) 32px
+        ),
+        linear-gradient(
+          90deg,
+          transparent 71px,
+          rgba(192, 57, 43, 0.3) 71px,
+          rgba(192, 57, 43, 0.3) 72px,
+          transparent 72px
+        );
+      color: #1a1a1a;
       font-family: 'DM Sans', sans-serif;
       font-weight: 300;
       font-size: 18px;
       line-height: 1.6;
+    }
+
+    /* grain overlay */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.035;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.78' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)'/%3E%3C/svg%3E");
     }
 
     /* ─── NAV ─────────────────────────────────────────── */
@@ -38,8 +60,8 @@
       align-items: center;
       padding: 24px 48px;
       min-height: 88px;
-      border-bottom: 1px solid var(--border);
-      background: var(--bg);
+      border-bottom: 1px solid rgba(200, 185, 154, 0.6);
+      background: #f0e8d8;
     }
 
     nav .logo {
@@ -47,25 +69,25 @@
       font-weight: 900;
       font-size: 18px;
       letter-spacing: 0.08em;
-      text-transform: lowercase;
-      color: var(--black);
+      color: #1a1a1a;
       text-decoration: none;
     }
 
     nav a.back {
       font-size: 13px;
       letter-spacing: 0.1em;
-      text-transform: lowercase;
-      color: var(--gray);
+      color: #999;
       text-decoration: none;
       transition: color 0.2s;
+      font-family: 'DM Sans', sans-serif;
     }
-    nav a.back:hover { color: var(--black); }
+    nav a.back:hover { color: #1a1a1a; }
 
-    /* ─── CARET LINES ─────────────────────────────────── */
+    /* ─── CARET ───────────────────────────────────────── */
     .caret {
-      color: rgba(46, 111, 216, 0.5);
-      margin-right: 0.55em;
+      color: rgba(46, 111, 216, 0.45);
+      margin-right: 12px;
+      font-style: normal;
     }
 
     /* ─── ABOUT / HERO SPLIT ──────────────────────────── */
@@ -73,7 +95,7 @@
       display: grid;
       grid-template-columns: 60% 40%;
       min-height: 85vh;
-      border-bottom: 1px solid var(--border);
+      border-bottom: 1px solid rgba(200, 185, 154, 0.5);
     }
 
     .about-content {
@@ -81,26 +103,16 @@
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
-      gap: 36px;
+      gap: 32px;
     }
 
     .about-heading {
       font-family: 'Archivo', sans-serif;
       font-weight: 900;
-      font-size: clamp(28px, 3vw, 48px);
+      font-size: clamp(28px, 3vw, 46px);
       letter-spacing: -0.02em;
       line-height: 1.1;
-      color: var(--black);
-      text-transform: lowercase;
-    }
-
-    .apply-letter-line {
-      font-family: 'DM Sans', sans-serif;
-      font-weight: 300;
-      font-size: clamp(16px, 1.8vw, 19px);
-      line-height: 1.9;
-      color: var(--black);
-      display: block;
+      color: #1a1a1a;
     }
 
     .stanza {
@@ -108,9 +120,17 @@
       flex-direction: column;
     }
 
+    .apply-letter-line {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      font-size: 18px;
+      line-height: 1.9;
+      color: #1a1a1a;
+      display: block;
+    }
+
     .about-image {
       padding: 100px 48px 0 0;
-      background: transparent;
       align-self: start;
     }
 
@@ -123,7 +143,7 @@
     /* ─── CONTACT / FORM ──────────────────────────────── */
     .contact-section {
       padding: 80px 48px 80px;
-      border-top: 1px solid rgba(0,0,0,0.08);
+      border-top: 1px solid rgba(200, 185, 154, 0.5);
       background: rgba(0,0,0,0.03);
     }
 
@@ -139,14 +159,14 @@
     .contact-form input[type="email"],
     .contact-form textarea {
       width: 100%;
-      border: 1px solid #d8d7d3;
+      border: 1px solid rgba(200, 185, 154, 0.8);
       border-radius: 0;
       padding: 14px;
       font-family: 'DM Sans', sans-serif;
       font-size: 17px;
       font-weight: 300;
-      background: #fff;
-      color: var(--black);
+      background: #fffdf7;
+      color: #1a1a1a;
       outline: none;
       resize: vertical;
     }
@@ -167,7 +187,7 @@
       font-family: 'DM Sans', sans-serif;
       font-size: 17px;
       font-weight: 300;
-      color: var(--black);
+      color: #1a1a1a;
       cursor: pointer;
     }
 
@@ -195,10 +215,11 @@
       color: #444;
       line-height: 1.5;
       margin-top: -4px;
+      font-family: 'DM Sans', sans-serif;
     }
 
     .accord-row {
-      border: 1px solid var(--border);
+      border: 1px solid rgba(200, 185, 154, 0.8);
       margin-top: 4px;
     }
 
@@ -209,7 +230,7 @@
       padding: 14px 20px;
       font-size: 16px;
       font-family: 'DM Sans', sans-serif;
-      color: var(--black);
+      color: #1a1a1a;
       cursor: pointer;
       text-align: left;
       display: flex;
@@ -248,7 +269,7 @@
       padding: 0 24px 24px;
     }
 
-    .contact-form .accord-content.open { background: #ffffff; padding: 20px; }
+    .contact-form .accord-content.open { background: #fffdf7; padding: 20px; }
     .accord-content p { font-size: 15px; color: #444; line-height: 1.7; margin-top: 12px; }
     .accord-content p:first-child { margin-top: 0; }
 
@@ -265,9 +286,9 @@
       font-family: 'Archivo', sans-serif;
       font-weight: 900;
       font-size: 13px;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      padding: 14px 36px;
+      padding: 14px 40px;
       border-radius: 4px;
       cursor: pointer;
       transition: opacity 0.2s;
@@ -281,16 +302,18 @@
 
     /* ─── FOOTER ──────────────────────────────────────── */
     footer {
-      border-top: 1px solid var(--border);
+      border-top: 1px solid rgba(200, 185, 154, 0.5);
       padding: 40px 48px;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
       font-size: 13px;
-      color: var(--gray);
+      color: #999;
     }
-    footer a { color: var(--gray); text-decoration: none; }
-    footer a:hover { color: var(--black); }
+    footer a { color: #999; text-decoration: none; }
+    footer a:hover { color: #1a1a1a; }
 
     /* ─── FADE IN ──────────────────────────────────────── */
     .fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
@@ -300,8 +323,9 @@
     @media (max-width: 768px) {
       nav { padding: 20px 24px; }
       .about { grid-template-columns: 1fr; }
-      .about-content { padding: 72px 28px 48px; }
-      .about-image { padding: 0 28px 64px; }
+      .about-content { padding: 72px 24px 48px; }
+      .about-image { padding: 0 24px 64px; }
+      .apply-letter-line { font-size: 17px; }
       .contact-section { padding: 64px 24px 80px; }
       footer { flex-direction: column; gap: 16px; text-align: center; padding: 32px 24px; }
     }
@@ -321,16 +345,16 @@
       <h2 class="about-heading fade-in">you read it. something landed. good.</h2>
 
       <div class="stanza fade-in">
-        <span class="apply-letter-line"><span class="caret">&gt;</span> you have one thing that needs to go.</span>
-        <span class="apply-letter-line"><span class="caret">&gt;</span> you've been stepping over it long enough.</span>
+        <span class="apply-letter-line"><span class="caret">&gt;</span>you have one thing that needs to go.</span>
+        <span class="apply-letter-line"><span class="caret">&gt;</span>you've been stepping over it long enough.</span>
       </div>
 
       <div class="stanza fade-in">
-        <span class="apply-letter-line"><span class="caret">&gt;</span> fill out the form below.</span>
-        <span class="apply-letter-line"><span class="caret">&gt;</span> no pitch. no pressure.</span>
-        <span class="apply-letter-line"><span class="caret">&gt;</span> i read it. if we're a fit, we talk.</span>
-        <span class="apply-letter-line"><span class="caret">&gt;</span> if the first session doesn't shift something — i'll tell you myself.</span>
-        <span class="apply-letter-line"><span class="caret">&gt;</span> it always does.</span>
+        <span class="apply-letter-line"><span class="caret">&gt;</span>fill out the form below.</span>
+        <span class="apply-letter-line"><span class="caret">&gt;</span>no pitch. no pressure.</span>
+        <span class="apply-letter-line"><span class="caret">&gt;</span>i read it. if we're a fit, we talk.</span>
+        <span class="apply-letter-line"><span class="caret">&gt;</span>if the first session doesn't shift something — i'll tell you myself.</span>
+        <span class="apply-letter-line"><span class="caret">&gt;</span>it always does.</span>
       </div>
 
     </div>
@@ -383,7 +407,7 @@
 
   <footer>
     <span>© 2026 sean phillip · mindsetting.me</span>
-    <span style="color:var(--accent);">BREATHE</span>
+    <span style="color:var(--accent); font-family:'Archivo',sans-serif; font-weight:900; font-size:13px; letter-spacing:0.1em;">BREATHE</span>
   </footer>
 
   <script>
