@@ -157,7 +157,9 @@
 
     /* ─── CARET ───────────────────────────────────────── */
     .caret {
-      color: rgba(46, 111, 216, 0.45);
+      font-family: 'Archivo', sans-serif;
+      font-weight: 900;
+      color: #2E6FD8;
       margin-right: 12px;
       font-style: normal;
     }
@@ -173,7 +175,7 @@
       margin: 0 auto;
       display: flex;
       flex-direction: column;
-      gap: 40px;
+      gap: 48px;
     }
 
     .stanza {
@@ -184,96 +186,66 @@
     .letter-line {
       font-family: 'DM Sans', sans-serif;
       font-weight: 300;
-      font-size: 18px;
-      line-height: 1.9;
-      color: #1a1a1a;
-      display: block;
-    }
-
-    /* ─── WORK SECTION ────────────────────────────────── */
-    .work-section {
-      padding: 100px 48px;
-      border-bottom: 1px solid rgba(200, 185, 154, 0.5);
-    }
-
-    .work-inner {
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    .work-stanzas {
-      display: flex;
-      flex-direction: column;
-      gap: 32px;
-    }
-
-    .work-line {
-      font-family: 'DM Sans', sans-serif;
-      font-weight: 300;
-      font-size: 18px;
-      line-height: 1.8;
-      color: #1a1a1a;
+      font-size: 22px;
+      line-height: 1.7;
+      color: #111111;
       display: block;
     }
 
     /* ─── RESULTS SECTION ─────────────────────────────── */
     .results-section {
-      padding: 100px 48px 120px;
+      padding: 100px 0 120px;
       border-bottom: 1px solid rgba(200, 185, 154, 0.5);
     }
 
     .results-inner {
-      max-width: 1100px;
-      margin: 0 auto;
+      max-width: 100%;
     }
 
-    .testi-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
+    .results-header {
+      padding: 0 56px;
+      margin-bottom: 40px;
     }
 
-    .testi-card {
-      background: #fffdf7;
-      padding: 56px 48px;
-      border-left: 3px solid var(--accent);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    /* ─── EDITORIAL STRIPS ────────────────────────────── */
+    .testi-strip {
       display: flex;
-      flex-direction: column;
+      align-items: stretch;
+      border-top: 0.5px solid rgba(46,111,216,0.2);
+      padding: 56px 0;
     }
 
-    .testi-quote-mark {
+    .testi-strip:last-child {
+      border-bottom: 0.5px solid rgba(46,111,216,0.2);
+    }
+
+    .strip-label {
+      width: 260px;
+      min-width: 260px;
+      padding: 0 48px 0 56px;
+      border-right: 2px solid #2E6FD8;
+      display: flex;
+      align-items: center;
       font-family: 'Archivo', sans-serif;
       font-weight: 900;
-      font-size: 72px;
-      line-height: 1;
-      color: rgba(46, 111, 216, 0.15);
-      margin-bottom: -16px;
-      display: block;
-      user-select: none;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: #2E6FD8;
+      line-height: 1.5;
     }
 
-    .testi-card blockquote {
+    .strip-quote {
+      flex: 1;
+      padding: 0 56px;
+      display: flex;
+      align-items: center;
       font-family: 'DM Sans', sans-serif;
       font-weight: 300;
       font-size: 17px;
       line-height: 1.9;
       color: #1a1a1a;
       font-style: normal;
-      flex: 1;
-    }
-
-    .testi-card cite {
-      font-style: normal;
-      font-family: 'DM Sans', sans-serif;
-      font-weight: 300;
-      font-size: 14px;
-      line-height: 1.5;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-top: 16px;
-      display: block;
     }
 
     /* ─── CLOSING CTA (dark) ──────────────────────────── */
@@ -356,14 +328,28 @@
 
       .letter-section { padding: 72px 24px; }
       .letter-inner { max-width: 100%; }
-      .letter-line { font-size: 17px; }
+      .letter-line { font-size: 18px; }
 
-      .work-section { padding: 72px 24px; }
-      .work-inner { max-width: 100%; }
-      .work-line { font-size: 17px; }
+      .results-section { padding: 72px 0 80px; }
+      .results-header { padding: 0 24px; }
 
-      .results-section { padding: 72px 24px 100px; }
-      .testi-grid { grid-template-columns: 1fr; gap: 16px; }
+      .testi-strip {
+        flex-direction: column;
+        padding: 32px 24px;
+      }
+
+      .strip-label {
+        width: 100%;
+        min-width: unset;
+        padding: 0 0 16px 0;
+        border-right: none;
+        border-bottom: 2px solid #2E6FD8;
+        margin-bottom: 16px;
+      }
+
+      .strip-quote {
+        padding: 0;
+      }
 
       .cta-section { padding: 100px 24px; }
       .cta-line-1 { font-size: 32px; }
@@ -406,13 +392,13 @@
       <div class="stanza fade-in">
         <span class="letter-line"><span class="caret">&gt;</span>you've been handling everything.</span>
         <span class="letter-line"><span class="caret">&gt;</span>work. family. the noise of the world.</span>
-        <span class="letter-line"><span class="caret">&gt;</span>quietly carrying the one burden you've yet to properly deal with.</span>
+        <span class="letter-line"><span class="caret">&gt;</span>quietly carrying the one thing you haven't dealt with.</span>
       </div>
 
       <div class="stanza fade-in">
         <span class="letter-line"><span class="caret">&gt;</span>not because you can't.</span>
-        <span class="letter-line"><span class="caret">&gt;</span>because you don't know that you can do it cleanly.</span>
-        <span class="letter-line"><span class="caret">&gt;</span>without becoming someone different.</span>
+        <span class="letter-line"><span class="caret">&gt;</span>because you don't know that you can do it fast.</span>
+        <span class="letter-line"><span class="caret">&gt;</span>cleanly. without becoming someone different.</span>
         <span class="letter-line"><span class="caret">&gt;</span>without sitting in a circle talking about your feelings.</span>
       </div>
 
@@ -428,46 +414,40 @@
   <!-- ── RESULTS ────────────────────────────────────── -->
   <section class="results-section">
     <div class="results-inner">
-      <span class="section-label">looking for results</span>
-      <div class="testi-grid">
-
-        <div class="testi-card fade-in">
-          <span class="testi-quote-mark">&ldquo;</span>
-          <blockquote>"Sean! I've been feeling weird! Celebrating it. Keep getting hit by floods of tears without much warning. 'It ended' goes deeper as the days pass ~ today was my first experience in years of leaving the house and not having an anxiety attack while out. Thank you for rewriting the story with me. Trusting you was the best random leap of faith I've leaped."</blockquote>
-          <cite>chronic anxiety cessation</cite>
-        </div>
-
-        <div class="testi-card fade-in">
-          <span class="testi-quote-mark">&ldquo;</span>
-          <blockquote>"A point-of-no-return experience. I'm never the same. This has taken the cap — that I didn't even know was there — off of my joy, off of thankfulness, and off of celebration."</blockquote>
-          <cite>parental relationship strengthened</cite>
-        </div>
-
-        <div class="testi-card fade-in">
-          <span class="testi-quote-mark">&ldquo;</span>
-          <blockquote>"The whole anxiety thing just disappeared. Then one day I got in my car and it was gone — no thoughts, no apprehensions. My drive home was great and I'm having no problems."</blockquote>
-          <cite>sudden driving fear resolved</cite>
-        </div>
-
-        <div class="testi-card fade-in">
-          <span class="testi-quote-mark">&ldquo;</span>
-          <blockquote>"I can already feel a difference in how I show up with my clients, friends, and family. Our time together helped me refine my communication and bring more clarity and intention to my words. I also feel liberated from the stories I didn't realize I was living in."</blockquote>
-          <cite>communication and presence improved</cite>
-        </div>
-
-        <div class="testi-card fade-in">
-          <span class="testi-quote-mark">&ldquo;</span>
-          <blockquote>"I could see him just relax in the water. We went under a huge tunnel for a mile and he didn't even blink. That night was his first night alone — he said his dad could move back out of the bed."</blockquote>
-          <cite>adolescent claustrophobia resolved</cite>
-        </div>
-
-        <div class="testi-card fade-in">
-          <span class="testi-quote-mark">&ldquo;</span>
-          <blockquote>"When you access this deeper truth, it frees up so much space. It gives the opportunity for someone to honestly look and shift a perspective that has been sitting there for their whole life. Something can change in a moment — some really big things."</blockquote>
-          <cite>relationship clarity into action</cite>
-        </div>
-
+      <div class="results-header">
+        <span class="section-label">a few results</span>
       </div>
+
+      <div class="testi-strip fade-in">
+        <div class="strip-label">Chronic Anxiety Cessation</div>
+        <p class="strip-quote">"Sean! I've been feeling weird! Celebrating it. Keep getting hit by floods of tears without much warning. 'It ended' goes deeper as the days pass ~ today was my first experience in years of leaving the house and not having an anxiety attack while out. Thank you for rewriting the story with me. Trusting you was the best random leap of faith I've leaped."</p>
+      </div>
+
+      <div class="testi-strip fade-in">
+        <div class="strip-label">Parental Relationship Strengthened</div>
+        <p class="strip-quote">"A point-of-no-return experience. I'm never the same. This has taken the cap — that I didn't even know was there — off of my joy, off of thankfulness, and off of celebration."</p>
+      </div>
+
+      <div class="testi-strip fade-in">
+        <div class="strip-label">Sudden Driving Fear Resolved</div>
+        <p class="strip-quote">"The whole anxiety thing just disappeared. Then one day I got in my car and it was gone — no thoughts, no apprehensions. My drive home was great and I'm having no problems."</p>
+      </div>
+
+      <div class="testi-strip fade-in">
+        <div class="strip-label">Communication &amp; Presence Improved</div>
+        <p class="strip-quote">"I can already feel a difference in how I show up with my clients, friends, and family. Our time together helped me refine my communication and bring more clarity and intention to my words. I also feel liberated from the stories I didn't realize I was living in."</p>
+      </div>
+
+      <div class="testi-strip fade-in">
+        <div class="strip-label">Adolescent Claustrophobia Resolved</div>
+        <p class="strip-quote">"I could see him just relax in the water. We went under a huge tunnel for a mile and he didn't even blink. That night was his first night alone — he said his dad could move back out of the bed."</p>
+      </div>
+
+      <div class="testi-strip fade-in">
+        <div class="strip-label">Relationship Clarity Into Action</div>
+        <p class="strip-quote">"When you access this deeper truth, it frees up so much space. It gives the opportunity for someone to honestly look and shift a perspective that has been sitting there for their whole life. Something can change in a moment — some really big things."</p>
+      </div>
+
     </div>
   </section>
 
