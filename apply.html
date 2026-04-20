@@ -408,7 +408,7 @@
 
   <footer>
     <span>© 2026 sean phillip · mindsetting.me</span>
-    <span style="color:var(--accent); font-family:'Archivo',sans-serif; font-weight:900; font-size:13px; letter-spacing:0.1em;">BREATHE</span>
+    <span id="breathe-footer" style="font-family:'Archivo',sans-serif; font-weight:900; font-size:13px; letter-spacing:0.1em; color:var(--accent);"></span>
   </footer>
 
   <script>
@@ -443,6 +443,29 @@
         errorEl.style.display = 'none';
       }
     });
+
+    // BREATHE typewriter loop (footer)
+    (function () {
+      const text = 'Breathe...';
+      const el = document.getElementById('breathe-footer');
+      function runLoop() {
+        let i = 0;
+        el.textContent = '';
+        function type() {
+          if (i < text.length) {
+            el.textContent += text[i++];
+            setTimeout(type, 80);
+          } else {
+            setTimeout(() => {
+              el.textContent = '';
+              setTimeout(runLoop, 80);
+            }, 3500);
+          }
+        }
+        type();
+      }
+      runLoop();
+    })();
 
     // Fade-in observer
     const observer = new IntersectionObserver(entries => {
