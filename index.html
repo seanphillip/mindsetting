@@ -61,11 +61,10 @@
       top: 0; left: 0; right: 0;
       z-index: 100;
       display: flex;
-      justify-content: space-between;
       align-items: center;
       padding: 24px 48px;
-      background: #f0e8d8;
-      border-bottom: 1px solid rgba(200, 185, 154, 0.6);
+      background: transparent;
+      border-bottom: none;
     }
 
     nav .logo {
@@ -73,24 +72,10 @@
       font-weight: 900;
       font-size: 18px;
       letter-spacing: 0.08em;
-      color: #1a1a1a;
+      color: #ffffff;
       text-decoration: none;
+      transition: color 0.3s ease;
     }
-
-    nav a.cta-nav {
-      font-family: 'Archivo', sans-serif;
-      font-size: 12px;
-      font-weight: 900;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: #fff;
-      background: var(--accent);
-      padding: 10px 22px;
-      border-radius: 4px;
-      text-decoration: none;
-      transition: opacity 0.2s;
-    }
-    nav a.cta-nav:hover { opacity: 0.85; }
 
     /* ─── HERO (dark, no texture) ─────────────────────── */
     .hero {
@@ -369,7 +354,6 @@
 
   <nav>
     <a href="/" class="logo">mindsetting</a>
-    <a href="apply.html" class="cta-nav">apply</a>
   </nav>
 
   <!-- ── HERO ─────────────────────────────────────────── -->
@@ -466,6 +450,28 @@
   </footer>
 
   <script>
+    // Nav wordmark color — white over dark sections, black over paper
+    (function () {
+      const wordmark = document.querySelector('nav .logo');
+      const hero = document.querySelector('.hero');
+      const cta = document.querySelector('.cta-section');
+
+      function updateWordmark() {
+        const scrollY = window.scrollY;
+        const heroBottom = hero.offsetTop + hero.offsetHeight;
+        const ctaTop = cta.offsetTop;
+        const ctaBottom = cta.offsetTop + cta.offsetHeight;
+
+        const overHero = scrollY < heroBottom - 80;
+        const overCta = scrollY >= ctaTop - 80 && scrollY < ctaBottom - 80;
+
+        wordmark.style.color = (overHero || overCta) ? '#ffffff' : '#111111';
+      }
+
+      window.addEventListener('scroll', updateWordmark, { passive: true });
+      updateWordmark();
+    })();
+
     // Fade-in scroll observer
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(e => {
