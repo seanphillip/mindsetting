@@ -63,8 +63,7 @@
       display: flex;
       align-items: center;
       padding: 24px 48px;
-      background: transparent;
-      border-bottom: none;
+      background: #0f0f0f;
     }
 
     nav .logo {
@@ -74,7 +73,6 @@
       letter-spacing: 0.08em;
       color: #ffffff;
       text-decoration: none;
-      transition: color 0.3s ease;
     }
 
     /* ─── HERO (dark, no texture) ─────────────────────── */
@@ -450,28 +448,6 @@
   </footer>
 
   <script>
-    // Nav wordmark color — white over dark sections, black over paper
-    (function () {
-      const wordmark = document.querySelector('nav .logo');
-      const hero = document.querySelector('.hero');
-      const cta = document.querySelector('.cta-section');
-
-      function updateWordmark() {
-        const scrollY = window.scrollY;
-        const heroBottom = hero.offsetTop + hero.offsetHeight;
-        const ctaTop = cta.offsetTop;
-        const ctaBottom = cta.offsetTop + cta.offsetHeight;
-
-        const overHero = scrollY < heroBottom - 80;
-        const overCta = scrollY >= ctaTop - 80 && scrollY < ctaBottom - 80;
-
-        wordmark.style.color = (overHero || overCta) ? '#ffffff' : '#111111';
-      }
-
-      window.addEventListener('scroll', updateWordmark, { passive: true });
-      updateWordmark();
-    })();
-
     // Fade-in scroll observer
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(e => {
