@@ -56,23 +56,18 @@
     }
 
     /* ─── NAV ─────────────────────────────────────────── */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      display: flex;
-      align-items: center;
-      padding: 24px 48px;
-      background: #0f0f0f;
-    }
-
-    nav .logo {
+    .wordmark {
+      position: absolute;
+      top: 28px;
+      left: 32px;
       font-family: 'Archivo', sans-serif;
       font-weight: 900;
-      font-size: 18px;
-      letter-spacing: 0.08em;
+      font-size: 13px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
       color: #ffffff;
       text-decoration: none;
+      z-index: 10;
     }
 
     /* ─── HERO (dark, no texture) ─────────────────────── */
@@ -303,8 +298,6 @@
 
     /* ─── MOBILE ──────────────────────────────────────── */
     @media (max-width: 768px) {
-      nav { padding: 20px 24px; }
-
       .hero { padding: 100px 24px 72px; }
       .hero h1 { font-size: 36px; }
       .hero-sub { font-size: 17px; }
@@ -350,9 +343,7 @@
 </head>
 <body>
 
-  <nav>
-    <a href="/" class="logo">mindsetting</a>
-  </nav>
+  <a href="/" class="wordmark">mindsetting</a>
 
   <!-- ── HERO ─────────────────────────────────────────── -->
   <section class="hero">
