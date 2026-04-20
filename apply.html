@@ -31,6 +31,7 @@
       line-height: 1.6;
     }
 
+    /* ─── NAV ─────────────────────────────────────────── */
     nav {
       display: flex;
       justify-content: space-between;
@@ -46,7 +47,7 @@
       font-weight: 900;
       font-size: 18px;
       letter-spacing: 0.08em;
-      text-transform: uppercase;
+      text-transform: lowercase;
       color: var(--black);
       text-decoration: none;
     }
@@ -54,93 +55,20 @@
     nav a.back {
       font-size: 13px;
       letter-spacing: 0.1em;
-      text-transform: uppercase;
+      text-transform: lowercase;
       color: var(--gray);
       text-decoration: none;
       transition: color 0.2s;
     }
     nav a.back:hover { color: var(--black); }
 
-    .page-header {
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      padding: 80px 48px;
-      border-bottom: 1px solid var(--border);
-      overflow: hidden;
+    /* ─── CARET LINES ─────────────────────────────────── */
+    .caret {
+      color: rgba(46, 111, 216, 0.5);
+      margin-right: 0.55em;
     }
 
-    /* CONGRATULATIONS */
-    .congrats-section {
-      min-height: 60vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 120px 48px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .congrats-text {
-      font-family: 'Archivo', sans-serif;
-      font-weight: 900;
-      font-size: clamp(30px, 3.2vw, 52px);
-      letter-spacing: -0.02em;
-      line-height: 1.05;
-      color: var(--black);
-    }
-
-    .section-label {
-      font-size: 11px;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 32px;
-    }
-
-    #cursor {
-      display: inline-block;
-      color: var(--accent);
-      font-weight: 300;
-      margin-left: 2px;
-      animation: blink 800ms step-start infinite;
-    }
-
-    @keyframes blink {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0; }
-    }
-
-    .page-header h1 {
-      font-family: 'Archivo', sans-serif;
-      font-size: clamp(36px, 7vw, 96px);
-      font-weight: 900;
-      color: #2E6FD8;
-      text-align: center;
-      white-space: normal;
-      word-break: break-word;
-      margin: 0;
-      padding: 0;
-      width: 100%;
-    }
-
-    .page-header-sub {
-      font-family: 'DM Sans', sans-serif;
-      font-size: clamp(15px, 3.5vw, 26px);
-      font-weight: 600;
-      color: #1a1a1a;
-      text-align: center;
-      white-space: normal;
-      margin: 12px 0 0;
-      padding: 0 24px;
-      width: 100%;
-      max-width: 600px;
-    }
-
-    /* ABOUT MIRROR */
+    /* ─── ABOUT / HERO SPLIT ──────────────────────────── */
     .about {
       display: grid;
       grid-template-columns: 60% 40%;
@@ -149,37 +77,39 @@
     }
 
     .about-content {
-      padding: 120px 64px;
+      padding: 100px 64px 80px;
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
+      gap: 36px;
     }
 
     .about-heading {
       font-family: 'Archivo', sans-serif;
       font-weight: 900;
-      font-size: clamp(30px, 3.2vw, 52px);
+      font-size: clamp(28px, 3vw, 48px);
       letter-spacing: -0.02em;
-      line-height: 1.05;
-      margin-bottom: 32px;
+      line-height: 1.1;
       color: var(--black);
+      text-transform: lowercase;
     }
 
-    .about-heading .h-line1 {
+    .apply-letter-line {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      font-size: clamp(16px, 1.8vw, 19px);
+      line-height: 1.9;
+      color: var(--black);
       display: block;
-      margin-bottom: 20px;
     }
 
-    .about-body {
-      font-size: 17px;
-      color: var(--black);
-      line-height: 1.75;
-      margin-bottom: 20px;
-      max-width: 520px;
+    .stanza {
+      display: flex;
+      flex-direction: column;
     }
 
     .about-image {
-      padding: 120px 48px 0 0;
+      padding: 100px 48px 0 0;
       background: transparent;
       align-self: start;
     }
@@ -190,307 +120,9 @@
       display: block;
     }
 
-    .ready-link {
-      display: inline-block;
-      margin-top: 32px;
-      font-family: 'Archivo', sans-serif;
-      font-weight: 700;
-      font-size: 32px;
-      color: var(--accent);
-      text-decoration: none;
-      border: none;
-    }
-    .ready-link:hover { opacity: 0.75; }
-
-    .agreement-section {
-      padding: 0 48px 80px;
-    }
-
-    .agreement-box {
-      background: #ffffff;
-      border: 1px solid #d8d7d3;
-      padding: 48px;
-      max-width: 860px;
-      margin: 0 auto;
-    }
-
-    .agreement-heading {
-      font-family: 'Archivo', sans-serif;
-      font-weight: 400;
-      font-size: 24px;
-      color: var(--black);
-      margin-bottom: 40px;
-      text-align: center;
-    }
-
-    .agreement-body {
-      font-size: 17px;
-      color: #1a1a1a;
-      line-height: 1.5;
-    }
-
-    .agreement-body p + p { margin-top: 16px; }
-
-    .accord-row {
-      border: 1px solid var(--border);
-      margin-top: 16px;
-    }
-
-    .accord-btn {
-      width: 100%;
-      background: transparent;
-      border: none;
-      padding: 14px 20px;
-      font-size: 16px;
-      font-family: 'DM Sans', sans-serif;
-      color: var(--black);
-      cursor: pointer;
-      text-align: left;
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-
-    .accord-btn:hover { background: rgba(0,0,0,0.02); }
-
-    .contact-form .accord-row { border-color: var(--accent); }
-    .contact-form .accord-btn {
-      background: #EBF2FD;
-      color: var(--accent);
-    }
-    .contact-form .accord-btn:hover { background: #deeaf9; }
-
-    .accord-icon {
-      font-size: 20px;
-      line-height: 1;
-      font-weight: 300;
-      transition: transform 0.2s;
-      flex-shrink: 0;
-    }
-
-    .accord-btn.open .accord-icon { transform: rotate(45deg); }
-
-    .accord-content {
-      font-size: 17px;
-      color: #1a1a1a;
-      line-height: 1.8;
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.35s ease, padding 0.35s ease;
-      padding: 0 24px;
-    }
-
-    .accord-content.open {
-      max-height: 1000px;
-      padding: 0 24px 24px;
-    }
-
-    .agreement-divider {
-      border-bottom: 1px solid var(--border);
-      margin-top: 80px;
-      margin-bottom: 80px;
-    }
-
-    /* STEPS */
-    .apply-steps {
-      padding: 80px 48px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .apply-steps h2 {
-      font-family: 'Archivo', sans-serif;
-      font-weight: 900;
-      font-size: 36px;
-      text-transform: uppercase;
-      letter-spacing: -0.01em;
-      margin-bottom: 48px;
-      color: #aaa;
-    }
-
-    .step-block {
-      display: grid;
-      grid-template-columns: 80px 1fr;
-      gap: 32px;
-      padding: 48px 0;
-      border-top: 1px solid var(--border);
-      align-items: start;
-    }
-
-    .step-block:last-child { border-bottom: 1px solid var(--border); }
-
-    .step-num {
-      font-family: 'Archivo', sans-serif;
-      font-weight: 900;
-      font-size: 52px;
-      color: #ccc;
-      line-height: 1;
-    }
-
-    .step-content h3 {
-      font-size: 13px;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 12px;
-    }
-
-    .step-content p {
-      font-size: 17px;
-      color: #555;
-      line-height: 1.75;
-      margin-bottom: 16px;
-    }
-
-    .step-content p:last-child { margin-bottom: 0; }
-    .step-content p strong { color: var(--black); font-weight: 500; }
-
-    .payment-options {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-      margin-top: 24px;
-    }
-
-    .payment-option {
-      background: var(--mid);
-      padding: 24px 28px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .payment-option .method {
-      font-size: 11px;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 4px;
-    }
-
-    .payment-option .handle {
-      font-size: 17px;
-      color: var(--black);
-      font-weight: 400;
-    }
-
-    .payment-option a {
-      font-size: 12px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: #fff;
-      background: var(--accent);
-      padding: 10px 20px;
-      text-decoration: none;
-      white-space: nowrap;
-      transition: opacity 0.2s;
-    }
-    .payment-option a:hover { opacity: 0.85; }
-
-    /* QUESTIONS */
-    .doc-preview {
-      padding: 80px 48px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .doc-preview h2 {
-      font-family: 'Archivo', sans-serif;
-      font-weight: 900;
-      font-size: 36px;
-      text-transform: uppercase;
-      letter-spacing: -0.01em;
-      color: #aaa;
-      margin-bottom: 8px;
-    }
-
-    .doc-preview .sub {
-      font-size: 15px;
-      color: #999;
-      margin-bottom: 40px;
-    }
-
-    .doc-box {
-      background: var(--mid);
-      padding: 56px 48px;
-      max-width: 720px;
-      border-left: 3px solid var(--accent);
-    }
-
-    .doc-box .greeting {
-      font-size: 17px;
-      color: #444;
-      margin-bottom: 20px;
-      line-height: 1.8;
-    }
-
-    .doc-box .instructions {
-      font-size: 14px;
-      color: #999;
-      font-style: italic;
-      line-height: 1.7;
-    }
-
-    .doc-divider {
-      height: 1px;
-      background: var(--border);
-      margin: 32px 0;
-    }
-
-    .doc-questions { display: flex; flex-direction: column; }
-
-    .doc-q {
-      padding: 20px 0;
-      border-bottom: 1px solid var(--border);
-    }
-    .doc-q:last-child { border-bottom: none; }
-
-    .doc-q .q-label {
-      font-size: 11px;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 6px;
-    }
-
-    .doc-q .q-text {
-      font-size: 16px;
-      color: #333;
-      line-height: 1.6;
-    }
-
-    .doc-q .q-sub {
-      font-size: 14px;
-      color: #999;
-      margin-top: 6px;
-      font-style: italic;
-      line-height: 1.6;
-    }
-
-    /* EMAIL REMINDER */
-    .email-reminder {
-      padding: 60px 48px;
-      background: var(--mid);
-      border-top: 1px solid var(--border);
-    }
-
-    .email-reminder p {
-      font-size: 16px;
-      color: #999;
-      margin-bottom: 8px;
-    }
-
-    .email-reminder a {
-      color: var(--accent);
-      text-decoration: none;
-      font-size: 20px;
-      font-weight: 500;
-    }
-
-    /* CONTACT */
+    /* ─── CONTACT / FORM ──────────────────────────────── */
     .contact-section {
-      padding: 64px 48px 48px;
+      padding: 80px 48px 80px;
       border-top: 1px solid rgba(0,0,0,0.08);
       background: rgba(0,0,0,0.03);
     }
@@ -565,6 +197,57 @@
       margin-top: -4px;
     }
 
+    .accord-row {
+      border: 1px solid var(--border);
+      margin-top: 4px;
+    }
+
+    .accord-btn {
+      width: 100%;
+      background: transparent;
+      border: none;
+      padding: 14px 20px;
+      font-size: 16px;
+      font-family: 'DM Sans', sans-serif;
+      color: var(--black);
+      cursor: pointer;
+      text-align: left;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .accord-btn:hover { background: rgba(0,0,0,0.02); }
+
+    .contact-form .accord-row { border-color: var(--accent); }
+    .contact-form .accord-btn {
+      background: #EBF2FD;
+      color: var(--accent);
+    }
+    .contact-form .accord-btn:hover { background: #deeaf9; }
+
+    .accord-icon {
+      font-size: 20px;
+      line-height: 1;
+      font-weight: 300;
+      transition: transform 0.2s;
+      flex-shrink: 0;
+    }
+    .accord-btn.open .accord-icon { transform: rotate(45deg); }
+
+    .accord-content {
+      font-size: 17px;
+      color: #1a1a1a;
+      line-height: 1.8;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease, padding 0.35s ease;
+      padding: 0 24px;
+    }
+    .accord-content.open {
+      max-height: 1000px;
+      padding: 0 24px 24px;
+    }
+
     .contact-form .accord-content.open { background: #ffffff; padding: 20px; }
     .accord-content p { font-size: 15px; color: #444; line-height: 1.7; margin-top: 12px; }
     .accord-content p:first-child { margin-top: 0; }
@@ -576,142 +259,27 @@
       margin-top: 8px;
     }
 
-    .btn-book, .btn-inquire {
+    .btn-book {
       flex: 1;
       text-align: center;
       font-family: 'Archivo', sans-serif;
-      font-weight: 700;
-      font-size: 15px;
-      letter-spacing: 0.04em;
-      padding: 18px 24px;
+      font-weight: 900;
+      font-size: 13px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 14px 36px;
+      border-radius: 4px;
       cursor: pointer;
       transition: opacity 0.2s;
-    }
-
-    .btn-book {
       display: inline-block;
       background: var(--accent);
       color: #fff;
       text-decoration: none;
-      border: 2px solid var(--accent);
+      border: none;
     }
     .btn-book:hover { opacity: 0.85; }
 
-    .btn-inquire {
-      display: inline-block;
-      background: #EBF2FD;
-      color: #2E6FD8;
-      border: 1px solid #2E6FD8;
-    }
-    .btn-inquire:hover { opacity: 0.75; }
-
-    /* PAYMENT MODAL */
-    .modal-overlay {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.5);
-      z-index: 1000;
-      align-items: center;
-      justify-content: center;
-    }
-    .modal-overlay.open { display: flex; }
-
-    .modal-card {
-      background: #fff;
-      width: 100%;
-      max-width: 420px;
-      margin: 24px;
-      padding: 40px 36px 36px;
-      position: relative;
-      font-family: 'DM Sans', sans-serif;
-    }
-
-    .modal-close {
-      position: absolute;
-      top: 16px;
-      right: 20px;
-      font-size: 24px;
-      background: none;
-      border: none;
-      cursor: pointer;
-      color: #888;
-      line-height: 1;
-    }
-    .modal-close:hover { color: var(--black); }
-
-    .modal-heading {
-      font-family: 'Archivo', sans-serif;
-      font-weight: 900;
-      font-size: 24px;
-      letter-spacing: -0.02em;
-      color: var(--black);
-      margin-bottom: 4px;
-    }
-
-    .modal-sub {
-      font-size: 14px;
-      color: #888;
-      margin-bottom: 28px;
-    }
-
-    .modal-options {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .modal-btn {
-      display: block;
-      width: 100%;
-      padding: 16px 20px;
-      font-family: 'Archivo', sans-serif;
-      font-weight: 700;
-      font-size: 15px;
-      letter-spacing: 0.03em;
-      text-align: center;
-      text-decoration: none;
-      cursor: pointer;
-      border: none;
-      transition: opacity 0.2s;
-    }
-    .modal-btn:hover { opacity: 0.85; }
-
-    .modal-btn-primary {
-      background: var(--accent);
-      color: #fff;
-    }
-
-    .modal-btn-zelle {
-      background: #EBF2FD;
-      color: #2E6FD8;
-      border: 1px solid #2E6FD8;
-    }
-
-    .modal-zelle-note {
-      font-size: 13px;
-      color: #888;
-      text-align: center;
-      margin-top: -4px;
-    }
-
-    .btn-primary {
-      display: inline-block;
-      background: var(--accent);
-      color: #fff;
-      font-size: 13px;
-      font-weight: 500;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      padding: 18px 48px;
-      text-decoration: none;
-      border: none;
-      cursor: pointer;
-      transition: opacity 0.2s;
-      font-family: 'DM Sans', sans-serif;
-    }
-    .btn-primary:hover { opacity: 0.85; }
-
+    /* ─── FOOTER ──────────────────────────────────────── */
     footer {
       border-top: 1px solid var(--border);
       padding: 40px 48px;
@@ -724,89 +292,54 @@
     footer a { color: var(--gray); text-decoration: none; }
     footer a:hover { color: var(--black); }
 
-    @media (max-width: 768px) {
-      nav { padding: 20px 24px 20px 73px; }
-      .apply-steps { padding: 64px 24px 64px 73px; }
-      .step-block { grid-template-columns: 56px 1fr; gap: 20px; }
-      .doc-preview { padding: 64px 24px 64px 73px; }
-      .doc-box { padding: 36px 28px; }
-      .email-reminder { padding: 48px 24px 48px 73px; }
-      footer { flex-direction: column; gap: 16px; text-align: left; padding: 32px 24px 32px 73px; }
-      .about { grid-template-columns: 1fr; }
-      .about-image { padding: 0 24px 64px 73px; }
-      .about-content { padding: 64px 24px 64px 73px; }
-      .page-header {
-        padding: 80px 24px;
-        min-height: 100vh;
-      }
-      .page-header h1 {
-        font-size: clamp(40px, 11vw, 80px);
-        white-space: normal;
-        word-break: break-word;
-        text-align: center;
-      }
-      .page-header-sub {
-        font-size: clamp(15px, 4vw, 20px);
-        white-space: normal;
-        max-width: 100%;
-        padding: 0 8px;
-      }
-      .agreement-section { padding: 0 24px 60px 73px; }
-      .contact-section { padding: 64px 24px 48px 73px; }
-      .agreement-box { padding: 28px 20px; }
-      .ready-link { font-size: 24px; }
-      .about-content p {
-        white-space: normal !important;
-        font-size: 17px !important;
-        line-height: 1.6 !important;
-      }
-    }
-
+    /* ─── FADE IN ──────────────────────────────────────── */
     .fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
     .fade-in.visible { opacity: 1; transform: none; }
+
+    /* ─── MOBILE ──────────────────────────────────────── */
+    @media (max-width: 768px) {
+      nav { padding: 20px 24px; }
+      .about { grid-template-columns: 1fr; }
+      .about-content { padding: 72px 28px 48px; }
+      .about-image { padding: 0 28px 64px; }
+      .contact-section { padding: 64px 24px 80px; }
+      footer { flex-direction: column; gap: 16px; text-align: center; padding: 32px 24px; }
+    }
   </style>
 </head>
 <body>
 
   <nav>
-    <a href="index.html" class="logo">Mindsetting</a>
-    <a href="index.html" class="back">← Back</a>
+    <a href="index.html" class="logo">mindsetting</a>
+    <a href="index.html" class="back">← back</a>
   </nav>
 
+  <!-- ── HERO SPLIT: COPY LEFT / PHOTO RIGHT ──────────── -->
   <section class="about">
     <div class="about-content">
-      <h2 class="about-heading fade-in"><span class="h-line1">Here's <span style="color:var(--accent)">how it works..</span></span></h2>
-      <p class="about-body fade-in" style="font-size: 18px; font-weight: 500; line-height: 1.2; color: rgb(10,10,10); margin-bottom: 20px;">
-        select &ldquo;Begin 1:1 Transformation&rdquo; and hit CONNECT<br>
-        i email you a form to fill out + a simple guide to get started
-      </p>
 
-      <p class="about-body fade-in" style="font-size: 18px; font-weight: 500; line-height: 1.2; color: rgb(10,10,10); margin-bottom: 20px;">
-        have a clear goal or two in mind<br>
-        bring a sense of humor, and..<br>
-        be serious enough to commit<br>
-        time, money, energy
-      </p>
+      <h2 class="about-heading fade-in">you read it. something landed. good.</h2>
 
-      <p class="about-body fade-in" style="font-size: 18px; font-weight: 500; line-height: 1.2; color: rgb(10,10,10); margin-bottom: 20px;">
-        the form itself is free,<br>
-        take advantage of it whether we work together or not<br>
-        there is a small fee to have me read yours<br>
-        if i read it and we&rsquo;re a poor fit &mdash; full refund.<br>
-        if a good fit, same payment gets us on a full-length call<br>
-        guaranteed to shift something for the better &mdash; or your money back
-      </p>
+      <div class="stanza fade-in">
+        <span class="apply-letter-line"><span class="caret">&gt;</span> you have one thing that needs to go.</span>
+        <span class="apply-letter-line"><span class="caret">&gt;</span> you've been stepping over it long enough.</span>
+      </div>
 
-      <p class="about-body fade-in" style="font-family: 'DM Sans', sans-serif; font-size: 18.5px; font-weight: 300; line-height: 26.825px; color: rgb(10,10,10); margin-bottom: 20px; white-space: nowrap;">
-        &gt; at the end of that call, we&rsquo;ll explore how far you want to go
-      </p>
-      <a class="ready-link fade-in" href="#contact-section">i'm ready ↓</a>
+      <div class="stanza fade-in">
+        <span class="apply-letter-line"><span class="caret">&gt;</span> fill out the form below.</span>
+        <span class="apply-letter-line"><span class="caret">&gt;</span> no pitch. no pressure.</span>
+        <span class="apply-letter-line"><span class="caret">&gt;</span> i read it. if we're a fit, we talk.</span>
+        <span class="apply-letter-line"><span class="caret">&gt;</span> if the first session doesn't shift something — i'll tell you myself.</span>
+        <span class="apply-letter-line"><span class="caret">&gt;</span> it always does.</span>
+      </div>
+
     </div>
-    <div class="about-image">
+    <div class="about-image fade-in">
       <img src="sean-2.jpg" alt="Sean Phillip" />
     </div>
   </section>
 
+  <!-- ── CONTACT FORM ──────────────────────────────────── -->
   <section class="contact-section" id="contact-section">
     <form class="contact-form" id="contactForm" action="https://formspree.io/f/mqeyonzv" method="POST">
       <input type="hidden" name="_subject" value="Mindsetting — New Application">
@@ -886,31 +419,16 @@
       }
     });
 
-  function fitCopyText() {
-    const paras = document.querySelectorAll('.about-content p');
-    if (!paras.length) return;
-    let size = 30;
-    paras.forEach(p => { p.style.fontSize = size + 'px'; });
-    let fits = false;
-    while (!fits && size > 8) {
-      fits = true;
-      paras.forEach(p => {
-        if (p.scrollWidth > p.clientWidth) fits = false;
+    // Fade-in observer
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
       });
-      if (!fits) {
-        size -= 0.5;
-        paras.forEach(p => { p.style.fontSize = size + 'px'; });
-      }
-    }
-  }
-
-  fitCopyText();
-  window.addEventListener('resize', fitCopyText);
-
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
-  }, { threshold: 0.15 });
-  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
   </script>
 
 </body>
