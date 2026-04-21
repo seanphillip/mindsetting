@@ -228,14 +228,18 @@
 
     /* ─── CLOSING CTA (dark) ──────────────────────────── */
     .cta-section {
-      background: #0f0f0f;
+      background: #000000;
       padding: 120px 48px;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       text-align: center;
+      position: relative;
+      overflow: hidden;
     }
+
+    .cta-section > * { position: relative; z-index: 1; }
 
     .cta-line-1 {
       font-family: 'Archivo', sans-serif;
@@ -243,7 +247,7 @@
       font-size: 52px;
       line-height: 1.08;
       letter-spacing: -0.02em;
-      color: #ffffff;
+      color: #f5f3ee;
       margin-bottom: 12px;
     }
 
@@ -264,7 +268,8 @@
 
     /* ─── FOOTER ──────────────────────────────────────── */
     footer {
-      border-top: 1px solid rgba(200, 185, 154, 0.5);
+      background: #000000;
+      border-top: none;
       padding: 40px 48px;
       display: flex;
       justify-content: space-between;
@@ -272,8 +277,12 @@
       font-family: 'DM Sans', sans-serif;
       font-weight: 300;
       font-size: 13px;
-      color: #999;
+      color: #7a8aa8;
+      position: relative;
+      overflow: hidden;
     }
+
+    footer > * { position: relative; z-index: 1; }
 
     .breathe-footer {
       font-family: 'Archivo', sans-serif;
@@ -418,8 +427,16 @@
     </div>
   </section>
 
+  <!-- ── TORN EDGE ─────────────────────────────────── -->
+  <div style="display:block;line-height:0;margin-bottom:-1px;">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 64" preserveAspectRatio="none" style="width:100%;height:64px;display:block;">
+      <path d="M0,0 L0,40 Q60,64 120,38 Q180,12 240,44 Q300,64 360,36 Q420,8 480,42 Q540,64 600,34 Q660,4 720,46 Q780,64 840,32 Q900,0 960,48 Q1020,64 1080,36 Q1140,8 1200,44 Q1260,64 1320,38 Q1380,12 1440,40 L1440,0 Z" fill="#f0e8d8"/>
+    </svg>
+  </div>
+
   <!-- ── CLOSING CTA ────────────────────────────────── -->
   <section class="cta-section">
+    <div id="cta-stars" style="position:absolute;inset:0;pointer-events:none;"></div>
     <h2 class="cta-line-1 fade-in"><s>one problem.</s></h2>
     <h2 class="cta-line-1 fade-in">one opportunity.</h2>
     <h2 class="cta-line-2 fade-in">take it.</h2>
@@ -428,11 +445,38 @@
 
   <!-- ── FOOTER ─────────────────────────────────────── -->
   <footer>
+    <div id="footer-stars" style="position:absolute;inset:0;pointer-events:none;"></div>
     <span>© 2026 sean phillip · mindsetting.me</span>
     <span class="breathe-footer" id="breathe-footer"></span>
   </footer>
 
   <script>
+    // Star field generator
+    (function() {
+      function makeStars(containerId, count) {
+        var el = document.getElementById(containerId);
+        if (!el) return;
+        var frag = document.createDocumentFragment();
+        for (var i = 0; i < count; i++) {
+          var isBig = Math.random() < 0.08;
+          var dot = document.createElement('div');
+          var size = isBig ? 1.5 : 1;
+          var opacity = isBig
+            ? (0.35 + Math.random() * 0.25).toFixed(2)
+            : (0.06 + Math.random() * 0.12).toFixed(2);
+          dot.style.cssText = 'position:absolute;border-radius:50%;background:#d0dcf0;'
+            + 'width:' + size + 'px;height:' + size + 'px;'
+            + 'left:' + (Math.random() * 100).toFixed(3) + '%;'
+            + 'top:' + (Math.random() * 100).toFixed(3) + '%;'
+            + 'opacity:' + opacity + ';';
+          frag.appendChild(dot);
+        }
+        el.appendChild(frag);
+      }
+      makeStars('cta-stars', 120);
+      makeStars('footer-stars', 60);
+    })();
+
     // Fade-in scroll observer
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(e => {
