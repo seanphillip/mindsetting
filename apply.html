@@ -11,32 +11,46 @@
     html { scroll-behavior: smooth; }
 
     :root {
-      --bg: #f5f4f0;
-      --black: #0a0a0a;
       --accent: #2E6FD8;
-      --gray: #888;
-      --mid: #e8e7e3;
-      --border: #d8d7d3;
     }
 
+    /* sand-bg as the continuous body background */
     body {
-      background-color: #e8dcc0;
-      color: #231508;
+      background-image: url('sand-bg.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      background-color: #0a0603;
+      color: #f0e6d0;
       font-family: 'DM Sans', sans-serif;
       font-weight: 300;
       font-size: 18px;
       line-height: 1.6;
     }
 
-    /* ─── NAV ─────────────────────────────────────────── */
+    /* ─── NAV (sky-bg) ────────────────────────────────── */
     nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 24px 48px;
       min-height: 88px;
-      background: #0f0f0f;
+      background-image: url('sky-bg.jpg');
+      background-size: cover;
+      background-position: center top;
+      position: relative;
+      overflow: hidden;
     }
+
+    nav::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(4, 8, 20, 0.62);
+      pointer-events: none;
+    }
+
+    nav .logo, nav a.back { position: relative; z-index: 1; }
 
     nav .logo {
       font-family: 'Archivo', sans-serif;
@@ -51,7 +65,7 @@
     nav a.back {
       font-size: 13px;
       letter-spacing: 0.1em;
-      color: #999;
+      color: #aab8cc;
       text-decoration: none;
       transition: color 0.2s;
       font-family: 'DM Sans', sans-serif;
@@ -60,7 +74,7 @@
 
     /* ─── CARET ───────────────────────────────────────── */
     .caret {
-      color: #7a3a1a;
+      color: #c87941;
       margin-right: 12px;
       font-style: normal;
     }
@@ -70,10 +84,16 @@
       display: grid;
       grid-template-columns: 60% 40%;
       min-height: 85vh;
-      border-bottom: 1px solid rgba(160, 130, 90, 0.35);
-      background: #e8dcc0;
       position: relative;
-      overflow: hidden;
+    }
+
+    .about::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(20, 8, 0, 0.52);
+      pointer-events: none;
+      z-index: 0;
     }
 
     .about-content {
@@ -83,7 +103,7 @@
       justify-content: flex-start;
       gap: 32px;
       position: relative;
-      z-index: 2;
+      z-index: 1;
     }
 
     .about-heading {
@@ -92,7 +112,7 @@
       font-size: clamp(28px, 3vw, 46px);
       letter-spacing: -0.02em;
       line-height: 1.1;
-      color: #231508;
+      color: #f0e6d0;
     }
 
     .stanza {
@@ -105,7 +125,7 @@
       font-weight: 300;
       font-size: 18px;
       line-height: 1.9;
-      color: #231508;
+      color: #f0e6d0;
       display: block;
     }
 
@@ -113,7 +133,7 @@
       padding: 100px 48px 0 0;
       align-self: start;
       position: relative;
-      z-index: 2;
+      z-index: 1;
     }
 
     .about-image img {
@@ -125,8 +145,16 @@
     /* ─── CONTACT / FORM ──────────────────────────────── */
     .contact-section {
       padding: 80px 48px 80px;
-      border-top: 1px solid rgba(160, 130, 90, 0.35);
-      background: rgba(0,0,0,0.04);
+      position: relative;
+    }
+
+    .contact-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(20, 8, 0, 0.58);
+      pointer-events: none;
+      z-index: 0;
     }
 
     .contact-form {
@@ -135,23 +163,28 @@
       display: flex;
       flex-direction: column;
       gap: 16px;
+      position: relative;
+      z-index: 1;
     }
 
     .contact-form input[type="text"],
     .contact-form input[type="email"],
     .contact-form textarea {
       width: 100%;
-      border: 1px solid rgba(160, 130, 90, 0.6);
+      border: 1px solid rgba(200, 150, 80, 0.5);
       border-radius: 0;
       padding: 14px;
       font-family: 'DM Sans', sans-serif;
       font-size: 17px;
       font-weight: 300;
-      background: #f5edda;
-      color: #231508;
+      background: rgba(30, 12, 0, 0.65);
+      color: #f0e6d0;
       outline: none;
       resize: vertical;
     }
+
+    .contact-form input::placeholder,
+    .contact-form textarea::placeholder { color: rgba(240, 230, 208, 0.45); }
 
     .contact-form input:focus,
     .contact-form textarea:focus { border-color: var(--accent); }
@@ -169,7 +202,7 @@
       font-family: 'DM Sans', sans-serif;
       font-size: 17px;
       font-weight: 300;
-      color: #231508;
+      color: #f0e6d0;
       cursor: pointer;
     }
 
@@ -185,23 +218,23 @@
       font-family: 'DM Sans', sans-serif;
       font-size: 15px;
       font-weight: 400;
-      color: #c0392b;
-      border: 1px solid #e0b4b4;
-      background: #fdf3f3;
+      color: #f4a4a4;
+      border: 1px solid rgba(200, 80, 80, 0.5);
+      background: rgba(60, 10, 10, 0.7);
       padding: 12px 16px;
     }
 
     .agreement-note {
       font-size: 16px;
       font-weight: 500;
-      color: #4a2e10;
+      color: #c4a882;
       line-height: 1.5;
       margin-top: -4px;
       font-family: 'DM Sans', sans-serif;
     }
 
     .accord-row {
-      border: 1px solid rgba(160, 130, 90, 0.6);
+      border: 1px solid rgba(200, 150, 80, 0.4);
       margin-top: 4px;
     }
 
@@ -212,21 +245,21 @@
       padding: 14px 20px;
       font-size: 16px;
       font-family: 'DM Sans', sans-serif;
-      color: #231508;
+      color: #f0e6d0;
       cursor: pointer;
       text-align: left;
       display: flex;
       align-items: center;
       gap: 16px;
     }
-    .accord-btn:hover { background: rgba(0,0,0,0.03); }
+    .accord-btn:hover { background: rgba(255,255,255,0.04); }
 
     .contact-form .accord-row { border-color: var(--accent); }
     .contact-form .accord-btn {
-      background: #EBF2FD;
-      color: var(--accent);
+      background: rgba(46, 111, 216, 0.15);
+      color: #90b8f0;
     }
-    .contact-form .accord-btn:hover { background: #deeaf9; }
+    .contact-form .accord-btn:hover { background: rgba(46, 111, 216, 0.25); }
 
     .accord-icon {
       font-size: 20px;
@@ -239,7 +272,7 @@
 
     .accord-content {
       font-size: 17px;
-      color: #231508;
+      color: #f0e6d0;
       line-height: 1.8;
       max-height: 0;
       overflow: hidden;
@@ -251,8 +284,8 @@
       padding: 0 24px 24px;
     }
 
-    .contact-form .accord-content.open { background: #f5edda; padding: 20px; }
-    .accord-content p { font-size: 15px; color: #4a2e10; line-height: 1.7; margin-top: 12px; }
+    .contact-form .accord-content.open { background: rgba(20, 8, 0, 0.5); padding: 20px; }
+    .accord-content p { font-size: 15px; color: #c4a882; line-height: 1.7; margin-top: 12px; }
     .accord-content p:first-child { margin-top: 0; }
 
     .contact-buttons {
@@ -282,10 +315,8 @@
     }
     .btn-book:hover { opacity: 0.85; }
 
-    /* ─── FOOTER (night sky) ──────────────────────────── */
+    /* ─── FOOTER (sand-bg continuous) ────────────────── */
     footer {
-      background: #000000;
-      border-top: none;
       padding: 40px 48px;
       display: flex;
       justify-content: space-between;
@@ -293,13 +324,22 @@
       font-family: 'DM Sans', sans-serif;
       font-weight: 300;
       font-size: 13px;
-      color: #7a8aa8;
+      color: #c4a882;
       position: relative;
-      overflow: hidden;
     }
+
+    footer::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(20, 8, 0, 0.62);
+      pointer-events: none;
+      z-index: 0;
+    }
+
     footer > * { position: relative; z-index: 1; }
-    footer a { color: #7a8aa8; text-decoration: none; }
-    footer a:hover { color: #d0dcf0; }
+    footer a { color: #c4a882; text-decoration: none; }
+    footer a:hover { color: #f0e6d0; }
 
     /* ─── FADE IN ──────────────────────────────────────── */
     .fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
@@ -326,8 +366,6 @@
 
   <!-- ── HERO SPLIT: COPY LEFT / PHOTO RIGHT ──────────── -->
   <section class="about">
-    <canvas id="about-grain" style="position:absolute;inset:0;pointer-events:none;z-index:0;"></canvas>
-    <div style="position:absolute;inset:0;pointer-events:none;z-index:1;background:radial-gradient(ellipse at 0% 0%,rgba(90,55,10,0.10) 0%,transparent 50%),radial-gradient(ellipse at 100% 0%,rgba(90,55,10,0.10) 0%,transparent 50%),radial-gradient(ellipse at 0% 100%,rgba(90,55,10,0.10) 0%,transparent 50%),radial-gradient(ellipse at 100% 100%,rgba(90,55,10,0.10) 0%,transparent 50%);"></div>
     <div class="about-content">
 
       <h2 class="about-heading fade-in">you read it.<br>you're <span style="color:#2E6FD8;">ready.</span></h2>
@@ -389,70 +427,12 @@
     </form>
   </section>
 
-  <!-- ── TORN EDGE ─────────────────────────────────── -->
-  <div style="display:block;line-height:0;margin-bottom:-1px;">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 64" preserveAspectRatio="none" style="width:100%;height:64px;display:block;">
-      <path d="M0,0 L0,40 Q60,64 120,38 Q180,12 240,44 Q300,64 360,36 Q420,8 480,42 Q540,64 600,34 Q660,4 720,46 Q780,64 840,32 Q900,0 960,48 Q1020,64 1080,36 Q1140,8 1200,44 Q1260,64 1320,38 Q1380,12 1440,40 L1440,0 Z" fill="#d4c8a8"/>
-    </svg>
-  </div>
-
   <footer>
-    <div id="footer-stars" style="position:absolute;inset:0;pointer-events:none;"></div>
     <span>© 2026 sean phillip · mindsetting.me</span>
     <span id="breathe-footer" style="font-family:'Archivo',sans-serif; font-weight:900; font-size:13px; letter-spacing:0.1em; color:var(--accent);"></span>
   </footer>
 
   <script>
-    // Parchment grain on canvas
-    (function() {
-      var canvas = document.getElementById('about-grain');
-      if (canvas) {
-        var section = canvas.parentElement;
-        var dpr = window.devicePixelRatio || 1;
-        var w = section.offsetWidth;
-        var h = section.offsetHeight;
-        canvas.width = w * dpr * 2;
-        canvas.height = h * dpr * 2;
-        canvas.style.width = w + 'px';
-        canvas.style.height = h + 'px';
-        var ctx = canvas.getContext('2d');
-        ctx.scale(dpr * 2, dpr * 2);
-        var imageData = ctx.createImageData(w, h);
-        var data = imageData.data;
-        for (var i = 0; i < data.length; i += 4) {
-          if (Math.random() < 0.4) {
-            data[i]     = 80;
-            data[i + 1] = 45;
-            data[i + 2] = 10;
-            data[i + 3] = Math.round(Math.random() * 0.08 * 255);
-          }
-        }
-        ctx.putImageData(imageData, 0, 0);
-      }
-    })();
-
-    // Star field for footer
-    (function() {
-      var el = document.getElementById('footer-stars');
-      if (!el) return;
-      var frag = document.createDocumentFragment();
-      for (var i = 0; i < 60; i++) {
-        var isBig = Math.random() < 0.08;
-        var dot = document.createElement('div');
-        var size = isBig ? 1.5 : 1;
-        var opacity = isBig
-          ? (0.35 + Math.random() * 0.25).toFixed(2)
-          : (0.06 + Math.random() * 0.12).toFixed(2);
-        dot.style.cssText = 'position:absolute;border-radius:50%;background:#d0dcf0;'
-          + 'width:' + size + 'px;height:' + size + 'px;'
-          + 'left:' + (Math.random() * 100).toFixed(3) + '%;'
-          + 'top:' + (Math.random() * 100).toFixed(3) + '%;'
-          + 'opacity:' + opacity + ';';
-        frag.appendChild(dot);
-      }
-      el.appendChild(frag);
-    })();
-
     // Accordion toggles
     document.querySelectorAll('.accord-btn').forEach(btn => {
       btn.addEventListener('click', () => {
