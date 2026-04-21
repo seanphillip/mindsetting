@@ -21,8 +21,8 @@
     html { scroll-behavior: smooth; }
 
     body {
-      background-color: #e8dcc0;
-      color: #231508;
+      background-color: #0a0603;
+      color: #f0e6d0;
       font-family: 'DM Sans', sans-serif;
       font-weight: 300;
       font-size: 18px;
@@ -103,7 +103,7 @@
       font-size: 12px;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: #8a6a4a;
+      color: #c87941;
       margin-bottom: 40px;
       display: block;
     }
@@ -112,18 +112,29 @@
     .caret {
       font-family: 'Archivo', sans-serif;
       font-weight: 900;
-      color: #7a3a1a;
+      color: #c87941;
       margin-right: 12px;
       font-style: normal;
     }
 
     /* ─── LETTER SECTION ──────────────────────────────── */
     .letter-section {
-      background: #e8dcc0;
+      background-image: url('sand-bg.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
       padding: 100px 48px 56px;
-      border-bottom: 1px solid rgba(160, 130, 90, 0.35);
       position: relative;
       overflow: hidden;
+    }
+
+    .letter-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(20, 8, 0, 0.52);
+      z-index: 1;
+      pointer-events: none;
     }
 
     .letter-inner {
@@ -146,17 +157,28 @@
       font-weight: 300;
       font-size: 22px;
       line-height: 1.7;
-      color: #231508;
+      color: #f0e6d0;
       display: block;
     }
 
     /* ─── RESULTS SECTION ─────────────────────────────── */
     .results-section {
-      background: #e8dcc0;
+      background-image: url('sand-bg.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
       padding: 100px 0 120px;
-      border-bottom: 1px solid rgba(160, 130, 90, 0.35);
       position: relative;
       overflow: hidden;
+    }
+
+    .results-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(20, 8, 0, 0.52);
+      z-index: 1;
+      pointer-events: none;
     }
 
     .results-inner {
@@ -174,19 +196,20 @@
     .testi-strip {
       display: flex;
       align-items: stretch;
-      border-top: 0.5px solid rgba(122,58,26,0.25);
+      border-top: 0.5px solid rgba(200, 150, 80, 0.2);
       padding: 56px 0;
+      background: rgba(15, 6, 0, 0.55);
     }
 
     .testi-strip:last-child {
-      border-bottom: 0.5px solid rgba(122,58,26,0.25);
+      border-bottom: 0.5px solid rgba(200, 150, 80, 0.2);
     }
 
     .strip-label {
       width: 260px;
       min-width: 260px;
       padding: 0 48px 0 56px;
-      border-right: 2px solid #7a3a1a;
+      border-right: 2px solid #c87941;
       display: flex;
       align-items: center;
       font-family: 'Archivo', sans-serif;
@@ -194,7 +217,7 @@
       font-size: 14px;
       text-transform: uppercase;
       letter-spacing: 0.14em;
-      color: #7a3a1a;
+      color: #c87941;
       line-height: 1.5;
     }
 
@@ -207,7 +230,7 @@
       font-weight: 300;
       font-size: 17px;
       line-height: 1.9;
-      color: #231508;
+      color: #f0e6d0;
       font-style: normal;
     }
 
@@ -313,7 +336,7 @@
         min-width: unset;
         padding: 0 0 16px 0;
         border-right: none;
-        border-bottom: 2px solid #7a3a1a;
+        border-bottom: 2px solid #c87941;
         margin-bottom: 16px;
       }
 
@@ -347,8 +370,6 @@
 
   <!-- ── THE LETTER ─────────────────────────────────── -->
   <section class="letter-section" id="letter">
-    <canvas id="letter-grain" style="position:absolute;inset:0;pointer-events:none;z-index:0;"></canvas>
-    <div style="position:absolute;inset:0;pointer-events:none;z-index:1;background:radial-gradient(ellipse at 0% 0%,rgba(90,55,10,0.10) 0%,transparent 50%),radial-gradient(ellipse at 100% 0%,rgba(90,55,10,0.10) 0%,transparent 50%),radial-gradient(ellipse at 0% 100%,rgba(90,55,10,0.10) 0%,transparent 50%),radial-gradient(ellipse at 100% 100%,rgba(90,55,10,0.10) 0%,transparent 50%);"></div>
     <div class="letter-inner">
 
       <div class="stanza fade-in">
@@ -375,11 +396,9 @@
 
   <!-- ── RESULTS ────────────────────────────────────── -->
   <section class="results-section">
-    <canvas id="results-grain" style="position:absolute;inset:0;pointer-events:none;z-index:0;"></canvas>
-    <div style="position:absolute;inset:0;pointer-events:none;z-index:1;background:radial-gradient(ellipse at 0% 0%,rgba(90,55,10,0.10) 0%,transparent 50%),radial-gradient(ellipse at 100% 0%,rgba(90,55,10,0.10) 0%,transparent 50%),radial-gradient(ellipse at 0% 100%,rgba(90,55,10,0.10) 0%,transparent 50%),radial-gradient(ellipse at 100% 100%,rgba(90,55,10,0.10) 0%,transparent 50%);"></div>
     <div class="results-inner">
       <div class="results-header">
-        <p style="font-family:'DM Sans',sans-serif; font-weight:300; font-size:16px; color:#231508; margin-bottom:16px;">staying the same is expensive. here's what moving looks like.</p>
+        <p style="font-family:'DM Sans',sans-serif; font-weight:300; font-size:16px; color:#f0e6d0; margin-bottom:16px;">staying the same is expensive. here's what moving looks like.</p>
         <span class="section-label">a few results</span>
       </div>
 
@@ -416,13 +435,6 @@
     </div>
   </section>
 
-  <!-- ── TORN EDGE ─────────────────────────────────── -->
-  <div style="display:block;line-height:0;margin-bottom:-1px;">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 64" preserveAspectRatio="none" style="width:100%;height:64px;display:block;">
-      <path d="M0,0 L0,40 Q60,64 120,38 Q180,12 240,44 Q300,64 360,36 Q420,8 480,42 Q540,64 600,34 Q660,4 720,46 Q780,64 840,32 Q900,0 960,48 Q1020,64 1080,36 Q1140,8 1200,44 Q1260,64 1320,38 Q1380,12 1440,40 L1440,0 Z" fill="#e8dcc0"/>
-    </svg>
-  </div>
-
   <!-- ── CLOSING CTA ────────────────────────────────── -->
   <section class="cta-section">
     <div id="cta-stars" style="position:absolute;inset:0;pointer-events:none;"></div>
@@ -440,37 +452,6 @@
   </footer>
 
   <script>
-    // Parchment grain on canvas
-    (function() {
-      function drawGrain(canvasId) {
-        var canvas = document.getElementById(canvasId);
-        if (!canvas) return;
-        var section = canvas.parentElement;
-        var dpr = window.devicePixelRatio || 1;
-        var w = section.offsetWidth;
-        var h = section.offsetHeight;
-        canvas.width = w * dpr * 2;
-        canvas.height = h * dpr * 2;
-        canvas.style.width = w + 'px';
-        canvas.style.height = h + 'px';
-        var ctx = canvas.getContext('2d');
-        ctx.scale(dpr * 2, dpr * 2);
-        var imageData = ctx.createImageData(w, h);
-        var data = imageData.data;
-        for (var i = 0; i < data.length; i += 4) {
-          if (Math.random() < 0.4) {
-            data[i]     = 80;
-            data[i + 1] = 45;
-            data[i + 2] = 10;
-            data[i + 3] = Math.round(Math.random() * 0.08 * 255);
-          }
-        }
-        ctx.putImageData(imageData, 0, 0);
-      }
-      drawGrain('letter-grain');
-      drawGrain('results-grain');
-    })();
-
     // Star field for night sky sections
     (function() {
       function makeStars(containerId, count) {
